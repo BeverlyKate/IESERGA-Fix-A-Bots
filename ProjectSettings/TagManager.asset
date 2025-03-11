@@ -5,7 +5,9 @@ TagManager:
   serializedVersion: 3
   tags:
   - Station
-  - Unknown
+  - StationUI
+  - Screw
+  - Option
   layers:
   - Default
   - TransparentFX
@@ -13,7 +15,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - Tools
   - 
   - 
   - 
