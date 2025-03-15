@@ -1,10 +1,24 @@
 using UnityEngine;
+using System.Collections.Generic;
 
+/* 
+ *
+ *    TODO:
+ *    
+ *      Add 2 kinds of zoom in features - 1 zooms into the pattern itself, the other zooms into the individual parts
+ *      have option spawn rather than have it be dragged from the table (More convenient)
+ *      have tools be icons that appear after option has been placed in the hole.
+ * 
+ */
 public class ToolStation : MonoBehaviour
 {
-    private GameObject[] missingLocation;
+    public GameObject nailPrefab;
 
-    private Transform chosenBolt;
+    public GameObject screwPrefab;
+
+    private List<GameObject> missingLocations = new List<GameObject> ();
+
+    private GameObject chosenBolt;
 
     private Camera cam;
 
@@ -14,16 +28,36 @@ public class ToolStation : MonoBehaviour
 
     private Vector3 originalPosition;
 
-    private Vector3 offset;
+    private GameObject robotPart;
 
-    Ray GetRay()=> cam.ScreenPointToRay(Input.mousePosition);
+    private Canvas stationUI;
+
+    private bool inSlot = false;
+
+    Ray GetRay()=> cam.ScreenPointToRay(Input.GetTouch(0).position);
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        missingLocation = GameObject.FindGameObjectsWithTag("Screw");
+        //missingLocations = GameObject.FindGameObjectsWithTag("Unknown");
 
         cam = gameObject.GetComponentInChildren<Camera>();
+
+        robotPart = GameObject.Find("Robot Head");
+
+        Debug.Log(robotPart.transform.name);
+
+        stationUI = GetComponentInChildren<Canvas>();
+
+        foreach(Transform child in robotPart.transform)
+        {
+            if (child.CompareTag("Unknown"))
+            {
+                missingLocations.Add(child.gameObject);
+            }
+        }
+
+        Debug.Log(missingLocations.Count);
     }
 
     // Update is called once per frame
@@ -33,50 +67,92 @@ public class ToolStation : MonoBehaviour
         {
             if (Input.GetTouch(0).phase == TouchPhase.Began)
             {
-                HandleClick(Input.GetTouch(0).position);
-            }
-        }
-
-        if (Input.GetMouseButtonDown(0))
-        {
-            if (!draggingObj) {
-                HandleClick(Input.mousePosition);
-            }
-
-            if (draggingObj)
-            {
-                Debug.Log(draggingObj);
-                if(Physics.Raycast(GetRay(), out RaycastHit rayHit))
+                if (!draggingObj)
                 {
-                    chosenBolt.position = rayHit.point;
+                    HandleClick(Input.GetTouch(0).position);
                 }
             }
-            //Debug.Log("Clicking in station");
-        }
-        else if (Input.GetMouseButtonUp(0))
-        {
-            if (draggingObj)
+            else if (Input.GetTouch(0).phase == TouchPhase.Ended)
             {
-                draggingObj = false;
-                Debug.Log(draggingObj);
-                chosenBolt.position = originalPosition;
+                if (draggingObj)
+                {
+                    Ray ray = cam.ScreenPointToRay(Input.GetTouch(0).position);
+                    if (Physics.Raycast(ray, out RaycastHit rayHit, Mathf.Infinity))
+                    {
+                        if (rayHit.transform.gameObject.CompareTag("Unknown"))
+                        {
+                            chosenBolt.transform.position = rayHit.transform.gameObject.GetComponentInChildren<Transform>().position;
+                            draggingObj = false;
+                            Debug.Log(draggingObj);
+                            chosenBolt = null;
+                        }
+                    }
+                }
+            }
+            else
+            {
+                if (draggingObj)
+                {
+                    Ray ray = cam.ScreenPointToRay(Input.GetTouch(0).position);
+                    if (Physics.Raycast(ray, out RaycastHit rayHit, Mathf.Infinity))
+                    {
+                        if (rayHit.transform.gameObject.CompareTag("Part"))
+                        {
+                            chosenBolt.transform.position = new Vector3(rayHit.point.x, rayHit.point.y, rayHit.point.z);
+                        }
+                        else
+                        {
+                            chosenBolt.transform.position = new Vector3(rayHit.point.x, chosenBolt.transform.position.y, rayHit.point.z);
+                        }
+                    }
+                }
             }
         }
     }
 
     private void HandleClick(Vector3 position)
     {
-        Ray ray = cam.ScreenPointToRay(position);
+        GameObject prefabToInstantiate = null;
+        //Ray ray = cam.ScreenPointToRay(position);
         if (Physics.Raycast(GetRay(), out RaycastHit rayHit, Mathf.Infinity))
         {
             //Debug.Log(rayHit.transform.name);
             if (rayHit.transform.gameObject.CompareTag("Option"))
             {
                 Debug.Log("Chose " + rayHit.transform.name);
-                chosenBolt = rayHit.transform;
-                originalPosition = chosenBolt.position;
+
+                if(rayHit.transform.name == "Nail Box")
+                {
+                    prefabToInstantiate = nailPrefab;
+                }
+                else if(rayHit.transform.name == "Screw Box")
+                {
+                    prefabToInstantiate = screwPrefab;
+                }
+
+                chosenBolt = (GameObject) Instantiate(prefabToInstantiate, rayHit.point, Quaternion.identity);
+                originalPosition = chosenBolt.transform.position;
                 draggingObj = true;
             }
         }
+    }
+
+    private Transform ClosestHole()
+    {
+        Transform tMin = null;
+        float minDist = Mathf.Infinity;
+        Vector2 currentPosition = chosenBolt.transform.position;
+
+        foreach(GameObject slot in missingLocations)
+        {
+            float dist = Vector3.Distance(slot.transform.position, currentPosition);
+            if(dist < minDist)
+            {
+                tMin = slot.transform;
+                minDist = dist;
+            }
+        }
+
+        return tMin;
     }
 }

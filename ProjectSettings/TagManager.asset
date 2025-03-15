@@ -8,6 +8,13 @@ TagManager:
   - StationUI
   - Screw
   - Option
+<<<<<<< Updated upstream
+=======
+  - Part
+  - Table
+  - Unknown
+  - Surface
+>>>>>>> Stashed changes
   - WireSlot
   layers:
   - Default
