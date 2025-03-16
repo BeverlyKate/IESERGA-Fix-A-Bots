@@ -24,15 +24,9 @@ public class ToolStation : MonoBehaviour
 
     private bool draggingObj = false;
 
-    private float deltaPosition;
-
     private Vector3 originalPosition;
 
     private GameObject robotPart;
-
-    private Canvas stationUI;
-
-    private bool inSlot = false;
 
     Ray GetRay()=> cam.ScreenPointToRay(Input.GetTouch(0).position);
 
@@ -46,8 +40,6 @@ public class ToolStation : MonoBehaviour
         robotPart = GameObject.Find("Robot Head");
 
         Debug.Log(robotPart.transform.name);
-
-        stationUI = GetComponentInChildren<Canvas>();
 
         foreach(Transform child in robotPart.transform)
         {
@@ -96,7 +88,7 @@ public class ToolStation : MonoBehaviour
                     Ray ray = cam.ScreenPointToRay(Input.GetTouch(0).position);
                     if (Physics.Raycast(ray, out RaycastHit rayHit, Mathf.Infinity))
                     {
-                        if (rayHit.transform.gameObject.CompareTag("Part"))
+                        if (rayHit.transform.gameObject.name == "Head")
                         {
                             chosenBolt.transform.position = new Vector3(rayHit.point.x, rayHit.point.y, rayHit.point.z);
                         }
@@ -135,24 +127,5 @@ public class ToolStation : MonoBehaviour
                 draggingObj = true;
             }
         }
-    }
-
-    private Transform ClosestHole()
-    {
-        Transform tMin = null;
-        float minDist = Mathf.Infinity;
-        Vector2 currentPosition = chosenBolt.transform.position;
-
-        foreach(GameObject slot in missingLocations)
-        {
-            float dist = Vector3.Distance(slot.transform.position, currentPosition);
-            if(dist < minDist)
-            {
-                tMin = slot.transform;
-                minDist = dist;
-            }
-        }
-
-        return tMin;
     }
 }
