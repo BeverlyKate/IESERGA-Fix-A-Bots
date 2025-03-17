@@ -42,26 +42,51 @@ public class WorkshopInteraction : MonoBehaviour
     private void HandleClick(Vector3 position) 
     {
         Ray ray = Camera.main.ScreenPointToRay(position);
-        if(Physics.Raycast(ray.origin, ray.direction, out RaycastHit rayHit))
+        if (Physics.Raycast(ray.origin, ray.direction, out RaycastHit rayHit))
         {
-            if(rayHit.transform.gameObject.CompareTag("Station"))
+            if (rayHit.transform.gameObject.CompareTag("Station"))
             {
                 clickedObject = rayHit.transform;
                 Debug.Log("Interacting with " + clickedObject.name);
-                current_cam = clickedObject.Find("Camera").gameObject;
 
-
-                current_cam.SetActive(true);
-                inStationUI.SetActive(true);
-                workshop_camera.SetActive(false);
-                ActivateScript();
-            }
-            else if(clickedObject != null)
-            {
-                Debug.Log("In a station");
+                Transform cameraTransform = clickedObject.Find("Camera");
+                if (cameraTransform != null)
+                {
+                    current_cam = cameraTransform.gameObject;
+                    current_cam.SetActive(true);
+                    inStationUI.SetActive(true);
+                    workshop_camera.SetActive(false);
+                    ActivateScript();
+                }
+                else
+                {
+                    Debug.LogError("Camera not found in " + clickedObject.name);
+                }
             }
         }
-    }
+            /*
+            Ray ray = Camera.main.ScreenPointToRay(position);
+            if(Physics.Raycast(ray.origin, ray.direction, out RaycastHit rayHit))
+            {
+                if(rayHit.transform.gameObject.CompareTag("Station"))
+                {
+                    clickedObject = rayHit.transform;
+                    Debug.Log("Interacting with " + clickedObject.name);
+                    current_cam = clickedObject.Find("Camera").gameObject;
+
+
+                    current_cam.SetActive(true);
+                    inStationUI.SetActive(true);
+                    workshop_camera.SetActive(false);
+                    ActivateScript();
+                }
+                else if(clickedObject != null)
+                {
+                    Debug.Log("In a station");
+                }
+            }
+            */
+        }
 
     public void LeaveStation()
     {
