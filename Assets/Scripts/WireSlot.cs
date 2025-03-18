@@ -59,4 +59,6 @@ public class WireSlot : MonoBehaviour
             SetOccupied(false, false);
         }
     }
+
+    
 }
