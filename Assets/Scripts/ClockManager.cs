@@ -41,6 +41,11 @@ public class ClockManager : MonoBehaviour
         string ampm = hours < 12 ? "AM" : "PM";
         hours = hours % 12;
 
+        if(hours == 0)
+        {
+            hours = 12;
+        }
+
         string clockString = string.Format("{0:00}:{1:00} {2}", hours, setMinute, ampm);
 
         clockText.text = clockString;
