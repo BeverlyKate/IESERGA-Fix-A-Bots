@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3849669701422158354}
   - component: {fileID: 1972056193883644389}
   - component: {fileID: 2487452300204894320}
+  - component: {fileID: 7247966221438028794}
   m_Layer: 0
   m_Name: 'Screw '
   m_TagString: Untagged
@@ -28,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 6783535593970837171}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.35675284, y: 0.3803, z: 0.43200037}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.019709757, y: 0.019709758, z: 0.019709757}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -106,5 +107,17 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 2, y: 2, z: 2}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &7247966221438028794
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6783535593970837171}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83cb7ce442672a541af2ca01b54abb42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

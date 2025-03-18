@@ -12,6 +12,7 @@ TagManager:
   - Station
   - StationUI
   - WireSlot
+  - Tool
   layers:
   - Default
   - TransparentFX

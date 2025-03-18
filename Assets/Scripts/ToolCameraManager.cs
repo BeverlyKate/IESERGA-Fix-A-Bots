@@ -15,7 +15,7 @@ public class ToolCameraManager : MonoBehaviour
     private Vector3 currentRot;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Awake()
+    void OnEnable()
     {
         origPos = transform.position;
         partPos = GameObject.FindGameObjectWithTag("Part").transform.position;
@@ -27,6 +27,17 @@ public class ToolCameraManager : MonoBehaviour
         origRot = transform.eulerAngles;
 
         ZoomButton.SetActive(true);
+
+        LeftButton.SetActive(false);
+        RightButton.SetActive(false);
+    }
+
+    void OnDisable()
+    {
+        transform.position = Vector3.MoveTowards(partPos, origPos, speed);
+        transform.eulerAngles = origRot;
+
+        ZoomButton.SetActive(false);
 
         LeftButton.SetActive(false);
         RightButton.SetActive(false);
