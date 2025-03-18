@@ -4,15 +4,17 @@
 TagManager:
   serializedVersion: 3
   tags:
-  - Unknown
+  - Station
   - Screw
   - Part
   - Option
   - Table
-  - Station
+  - Unknown
   - StationUI
   - WireSlot
   - Tool
+  - Plate
+  - Spray
   layers:
   - Default
   - TransparentFX
