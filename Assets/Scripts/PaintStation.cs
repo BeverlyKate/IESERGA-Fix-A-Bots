@@ -16,9 +16,15 @@ public class PaintStation : MonoBehaviour
     private Color[] originalPanelColors;
     private GameObject selectedCylinder = null;
     private float cylinderDepth = 2.0f;
+    private Camera cam;
+
+    Ray GetRay() => cam.ScreenPointToRay(Input.GetTouch(0).position);
 
     private void Start()
     {
+
+        cam = gameObject.GetComponentInChildren<Camera>();
+
         initialPositions = new Vector3[cylinders.Length];
         for (int i = 0; i < cylinders.Length; i++)
         {
@@ -53,7 +59,7 @@ public class PaintStation : MonoBehaviour
         if (Input.touchCount == 1)
         {
             Touch screenTouch = Input.GetTouch(0);
-            Ray ray = Camera.main.ScreenPointToRay(screenTouch.position);
+            Ray ray = cam.ScreenPointToRay(screenTouch.position);
             RaycastHit hit;
 
             switch (screenTouch.phase)
@@ -77,7 +83,7 @@ public class PaintStation : MonoBehaviour
                     {
                         Vector3 touchPos = screenTouch.position;
                         touchPos.z = cylinderDepth;
-                        Vector3 worldPosition = Camera.main.ScreenToWorldPoint(touchPos);
+                        Vector3 worldPosition = cam.ScreenToWorldPoint(touchPos);
 
                         selectedCylinder.transform.position = worldPosition;
                     }

@@ -14,7 +14,6 @@ public class MissionCalls : MonoBehaviour
 
     void Start()
     {
-        myCamera = Camera.main;
         if (missionPanel != null)
             missionPanel.SetActive(false); // Hide mission panel initially
     }
