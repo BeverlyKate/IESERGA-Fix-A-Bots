@@ -15,6 +15,7 @@ TagManager:
   - Tool
   - Plate
   - Spray
+  - TV
   layers:
   - Default
   - TransparentFX
