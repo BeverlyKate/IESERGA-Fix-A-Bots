@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections.Generic;
 using UnityEditor;
 using Unity.VisualScripting;
+using UnityEditor.Experimental.GraphView;
 
 /* 
  *
@@ -18,16 +19,6 @@ public class ToolStation : MonoBehaviour
     public GameObject nailPrefab;
 
     public GameObject screwPrefab;
-
-    private GameObject[] missingLocations;
-
-    private GameObject[] instatiatedObj;
-
-    [SerializeField]
-    private float[] correctPosition;
-
-    [SerializeField]
-    private int[] correctBolts;
 
     private GameObject chosenBolt;
 
@@ -53,12 +44,9 @@ public class ToolStation : MonoBehaviour
 
     private int boltPos;
 
-    private int correctAns = 0;
+    private RobotHead roboPart;
 
-    public Material complete;
-
-    [SerializeField]
-    private GameObject[] completeIndicator;
+    public GameObject[] zoomButtons;
 
     Ray GetRay()=> cam.ScreenPointToRay(Input.GetTouch(0).position);
 
@@ -69,14 +57,9 @@ public class ToolStation : MonoBehaviour
 
         cam = gameObject.GetComponentInChildren<Camera>();
 
-        missingLocations = GameObject.FindGameObjectsWithTag("Unknown");
+        roboPart = gameObject.GetComponentInChildren<RobotHead>();
 
-        //Debug.Log(robotPart.transform.name);
-
-        instatiatedObj = new GameObject[missingLocations.Length];
-
-
-        Debug.Log(missingLocations.Length);
+        Debug.Log(roboPart.transform.gameObject.name);
     }
 
     // Update is called once per frame
@@ -102,29 +85,24 @@ public class ToolStation : MonoBehaviour
                     {
                         if (rayHit.transform.gameObject.CompareTag("Unknown"))
                         {
-                            for(int i = 0; i<missingLocations.Length; i++)
-                            {
-                                if(rayHit.transform.gameObject == missingLocations[i])
-                                {
-                                    placement = i;
-                                }
-                            }
+                            //call function from robothead
+                            placement = roboPart.locationPlacement(rayHit.transform.gameObject);
                             Debug.Log(placement);
                             Debug.Log(draggingObj);
-                            if (instatiatedObj[placement] == null && choseNum == correctBolts[placement])
+                            if (roboPart.checkLocation(placement, choseNum))
                             {
                                 if (choseNum == 0)
                                 {
                                     Vector3 sizeVec = chosenBolt.transform.GetComponent<Renderer>().bounds.size;
                                     Vector3 addedPos = rayHit.transform.gameObject.GetComponentInChildren<Transform>().position;
-                                    float newY = addedPos.y + (sizeVec.y / 2);
+                                    float newY = addedPos.y + sizeVec.y;
                                     chosenBolt.transform.position = new Vector3(addedPos.x, newY, addedPos.z);
                                 }
                                 else
                                 {
                                     chosenBolt.transform.position = rayHit.transform.gameObject.GetComponentInChildren<Transform>().position;
                                 }
-                                instatiatedObj[placement] = chosenBolt.transform.gameObject;
+                                roboPart.setObjectPlacement(chosenBolt, placement);
                                 chosenBolt = null;
                                 draggingObj = false;
                             }
@@ -140,7 +118,7 @@ public class ToolStation : MonoBehaviour
                     Ray ray = cam.ScreenPointToRay(Input.GetTouch(0).position);
                     if (Physics.Raycast(ray, out RaycastHit rayHit, Mathf.Infinity))
                     {
-                        if (rayHit.transform.gameObject.name == "Head")
+                        if (rayHit.transform.gameObject.CompareTag("Part"))
                         {
                             chosenBolt.transform.position = new Vector3(rayHit.point.x, rayHit.point.y, rayHit.point.z);
                         }
@@ -152,12 +130,9 @@ public class ToolStation : MonoBehaviour
                 }
             }
 
-            if (correctAns == missingLocations.Length)
+            if (roboPart.checkIncrement())
             {
-                foreach(GameObject part in completeIndicator)
-                {
-                    part.GetComponent<Renderer>().material = complete;
-                }
+                roboPart.triggerDone();
             }
         }
     }
@@ -220,12 +195,20 @@ public class ToolStation : MonoBehaviour
 
                 if (onBolt)
                 {
-                    if (hitCounter < correctPosition[boltPos])
+                    if (hitCounter < roboPart.checkCorrectPosition(boltPos))
                     {
                         if (boltToEdit.TryGetComponent(out Nail nail))
                         {
-                            nail.transform.position = new Vector3(nail.transform.position.x, nail.transform.position.y - 0.01f, nail.transform.position.z);
-                            hitCounter += 1f;
+                            if(hitCounter < 2)
+                            {
+                                nail.transform.position = new Vector3(nail.transform.position.x, nail.transform.position.y - 0.02f, nail.transform.position.z);
+                                hitCounter += 1f;
+                            }
+                            else
+                            {
+                                nail.transform.position = new Vector3(nail.transform.position.x, nail.transform.position.y - 0.007f, nail.transform.position.z);
+                                hitCounter += 1f;
+                            }
                         }
                         else if (boltToEdit.TryGetComponent(out Screw screw))
                         {
@@ -235,7 +218,7 @@ public class ToolStation : MonoBehaviour
                     }
                     else
                     {
-                        correctAns++;
+                        roboPart.incrementCorrect();
                         hitCounter = 0f;
                         chosenTool.transform.position = chosenToolPos;
                         chosenTool.transform.eulerAngles = chosenToolRot;
@@ -252,12 +235,12 @@ public class ToolStation : MonoBehaviour
                 {
                     Vector3 toolSize = chosenTool.transform.GetComponentInChildren<Renderer>().bounds.size;
                     Vector3 nailSize = nail.transform.GetComponent<Renderer>().bounds.size;
-                    float newHeight = nailSize.y + toolSize.y / 2;
+                    float newHeight = nailSize.y;
                     chosenTool.transform.position = new Vector3(nail.transform.position.x, nail.transform.position.y + newHeight, nail.transform.position.z);
                     chosenTool.transform.eulerAngles = new Vector3(chosenTool.transform.eulerAngles.x, chosenTool.transform.eulerAngles.y + 90f, chosenTool.transform.eulerAngles.z);
                     onBolt = true;
                     boltToEdit = nail.gameObject;
-                    boltPos = FindPosition(boltToEdit);
+                    boltPos = roboPart.findFastenerPos(boltToEdit);
                 }
                 else if (rayHit.transform.gameObject.TryGetComponent(out Screw screw) && chosenTool.transform.name == "Screw Driver")
                 {
@@ -268,22 +251,9 @@ public class ToolStation : MonoBehaviour
                     chosenTool.transform.eulerAngles = new Vector3(chosenTool.transform.eulerAngles.x, chosenTool.transform.eulerAngles.y, chosenTool.transform.eulerAngles.z + 90f);
                     onBolt = true;
                     boltToEdit = screw.gameObject;
-                    boltPos = FindPosition(boltToEdit);
+                    boltPos = roboPart.findFastenerPos(boltToEdit);
                 }
             }
         }
-    }
-
-    private int FindPosition(GameObject bolt)
-    {
-        for(int i=0; i < instatiatedObj.Length; i++)
-        {
-            if (instatiatedObj[i] == bolt)
-            {
-                Debug.Log(i);
-                return i;
-            }
-        }
-        return -1;
     }
 }

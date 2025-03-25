@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class MissionCalls : MonoBehaviour
 {
@@ -9,18 +10,25 @@ public class MissionCalls : MonoBehaviour
     private Ray ray;
     private RaycastHit hit;
 
-    [SerializeField] private GameObject missionPanel; // Reference to the mission panel
-    [SerializeField] private Text missionText; // Reference to the text component
+    public GameObject missionPanel; 
+    public TMP_Text missionText;       
+    public Button okButton;         
+
+    private bool missionActive = false;  
+    private bool missionCompleted = false; 
 
     void Start()
     {
-        if (missionPanel != null)
-            missionPanel.SetActive(false); // Hide mission panel initially
+        myCamera = Camera.main;
+        missionPanel.SetActive(false); 
+
+     
+        okButton.onClick.AddListener(HideMission);
     }
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0)) // Use GetMouseButtonDown for a single tap
+        if (Input.GetMouseButtonDown(0))
         {
             HandleRayCast(Input.mousePosition);
         }
@@ -31,21 +39,38 @@ public class MissionCalls : MonoBehaviour
         ray = myCamera.ScreenPointToRay(myInput);
         if (Physics.Raycast(ray, out hit))
         {
-            Debug.Log("You are touching an object! That object is: " + hit.transform.name);
-
-            if (hit.transform.CompareTag("TV")) // Check if the touched object is the TV
+            if (hit.transform.CompareTag("TV")) // Make sure the TV object has the tag "TV"
             {
-                ShowMission("Your mission: Find the missing remote!"); // Display a mission
+                if (!missionCompleted) // Only show mission if not completed
+                {
+                    ShowMission();
+                }
+                else
+                {
+                    Debug.Log("Mission already completed!");
+                }
             }
         }
     }
 
-    void ShowMission(string mission)
+    void ShowMission()
     {
-        if (missionPanel != null && missionText != null)
-        {
-            missionText.text = mission;
-            missionPanel.SetActive(true);
-        }
+        missionPanel.SetActive(true);
+        missionText.text = "Your task: You shouldn't have pressed the TV...";
+        missionActive = true;
+    }
+
+    void HideMission()
+    {
+        missionPanel.SetActive(false);
+        missionActive = false;
+    }
+
+    // Call this method when the mission is completed
+    public void CompleteMission()
+    {
+        missionCompleted = true;
+        missionPanel.SetActive(false);
+        Debug.Log("Mission Completed!");
     }
 }
