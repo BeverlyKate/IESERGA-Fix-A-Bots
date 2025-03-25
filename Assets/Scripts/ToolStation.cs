@@ -75,7 +75,6 @@ public class ToolStation : MonoBehaviour
                     HandleClick(Input.GetTouch(0).position);
                 }
             }
-
             else if (Input.GetTouch(0).phase == TouchPhase.Ended)
             {
                 if (draggingObj)

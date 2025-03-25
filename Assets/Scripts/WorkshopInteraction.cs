@@ -86,7 +86,7 @@ public class WorkshopInteraction : MonoBehaviour
                 }
             }
             */
-        }
+    }
 
     public void LeaveStation()
     {
@@ -102,7 +102,7 @@ public class WorkshopInteraction : MonoBehaviour
     {
         if(clickedObject.name == "Tool")
         {
-            clickedObject.GetComponent<ToolStation>().enabled = true;
+            //clickedObject.GetComponent<ToolStation>().enabled = true;
             clickedObject.GetComponent<BoxCollider>().enabled = false;
         }
         else if (clickedObject.name == "Paint")
