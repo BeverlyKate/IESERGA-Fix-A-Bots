@@ -3,15 +3,9 @@ using UnityEngine;
 public class Screw : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    private Transform getRotation;
-    void Start()
+    
+    public void rotateScrew()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        transform.eulerAngles = new Vector3(transform.position.x, transform.position.y + 22.5f, transform.position.z);
     }
 }
