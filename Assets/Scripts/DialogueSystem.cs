@@ -15,5 +15,24 @@ public class DialogueSystem : MonoBehaviour
     public void StartDialogue(Dialogue[] dialogue)
     {
         Debug.Log("First Char is " + dialogue[0].name);
+
+        sentences.Clear();
+
+        foreach (Dialogue currentText in dialogue)
+        {
+            foreach (string sentence in currentText.sentences) 
+            {
+                sentences.Enqueue(sentence);
+            }
+
+            DisplayNextSentence();
+        }
+    }
+
+    public void DisplayNextSentence()
+    {
+        if (sentences.Count == 0)
+        {
+        }
     }
 }
