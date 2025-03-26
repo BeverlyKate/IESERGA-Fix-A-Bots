@@ -129,9 +129,11 @@ public class ToolStation : MonoBehaviour
                 }
             }
 
+            // triggers DONE sign
             if (roboPart.checkIncrement())
             {
                 roboPart.triggerDone();
+
             }
         }
     }
