@@ -5,6 +5,7 @@ public class ToolCameraManager : MonoBehaviour
     [SerializeField] private GameObject LeftButton;
     [SerializeField] private GameObject RightButton;
     [SerializeField] private GameObject ZoomButton;
+    [SerializeField] private GameObject ResetButton;
 
     public float speed = 5f;
     private bool isZoomed = false;
@@ -30,6 +31,7 @@ public class ToolCameraManager : MonoBehaviour
 
         LeftButton.SetActive(false);
         RightButton.SetActive(false);
+        ResetButton.SetActive(true);
     }
 
     void OnDisable()
@@ -41,6 +43,8 @@ public class ToolCameraManager : MonoBehaviour
 
         LeftButton.SetActive(false);
         RightButton.SetActive(false);
+
+        ResetButton.SetActive(false);
     }
 
     void Update()

@@ -281,4 +281,10 @@ public class ToolStation : MonoBehaviour
         }
     }
 
+    public void clearHold()
+    {
+        Destroy(chosenBolt);
+        choseNum = -1;
+        draggingObj = false;
+    }
 }

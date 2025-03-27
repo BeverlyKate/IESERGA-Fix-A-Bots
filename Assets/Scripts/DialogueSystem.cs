@@ -1,38 +1,57 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
+using TMPro;
 
 public class DialogueSystem : MonoBehaviour
 {
-    private Queue<string> sentences;
+    public TMP_Text nameText;
+    public TMP_Text dialogueText;
+    public Image characterImg;
+
+    private Queue<string> dialogueSentences;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        sentences = new Queue<string>();
+        dialogueSentences = new Queue<string>();
     }
 
     public void StartDialogue(Dialogue[] dialogue)
     {
         Debug.Log("First Char is " + dialogue[0].name);
 
-        sentences.Clear();
+        //characterImg.sprite = currentText.spriteImg.sprite;
 
-        foreach (Dialogue currentText in dialogue)
+        nameText.text = dialogue[0].name;
+
+        dialogueSentences.Clear();
+
+        foreach (string sentence in dialogue[0].sentences) 
         {
-            foreach (string sentence in currentText.sentences) 
-            {
-                sentences.Enqueue(sentence);
-            }
-
-            DisplayNextSentence();
+            dialogueSentences.Enqueue(sentence);
         }
+
+        DisplayNextSentence();
     }
 
     public void DisplayNextSentence()
     {
-        if (sentences.Count == 0)
+        if (dialogueSentences.Count == 0)
         {
+            EndDialogue();
+            return;
         }
+
+        string sentence = dialogueSentences.Dequeue();
+        dialogueText.text = sentence;
     }
+
+    void EndDialogue()
+    {
+        Debug.Log("End of Conversation");
+    }
+
+
 }
