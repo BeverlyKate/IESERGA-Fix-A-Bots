@@ -18,17 +18,15 @@ public class DialogueSystem : MonoBehaviour
         dialogueSentences = new Queue<string>();
     }
 
-    public void StartDialogue(Dialogue[] dialogue)
+    public void StartDialogue(Dialogue dialogue)
     {
-        Debug.Log("First Char is " + dialogue[0].name);
-
         //characterImg.sprite = currentText.spriteImg.sprite;
 
-        nameText.text = dialogue[0].name;
+        nameText.text = dialogue.name;
 
         dialogueSentences.Clear();
 
-        foreach (string sentence in dialogue[0].sentences) 
+        foreach (string sentence in dialogue.sentences) 
         {
             dialogueSentences.Enqueue(sentence);
         }
@@ -50,6 +48,7 @@ public class DialogueSystem : MonoBehaviour
 
     void EndDialogue()
     {
+        FindAnyObjectByType<DialogueTrigger>().TriggerDialogue();
         Debug.Log("End of Conversation");
     }
 
