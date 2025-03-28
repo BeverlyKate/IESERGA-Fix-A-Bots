@@ -10,13 +10,15 @@ public class PaintStation : MonoBehaviour
     public GameObject[] cylinders;
     public GameObject[] blackPanels;
     public Button resetButton;
-    public float proximityThreshold = 0.5f;
+    public float proximityThreshold = 0.001f;
+    public Camera cam;
+
 
     private Vector3[] initialPositions;
     private Color[] originalPanelColors;
     private GameObject selectedCylinder = null;
     private float cylinderDepth = 2.0f;
-    private Camera cam;
+    
 
     Ray GetRay() => cam.ScreenPointToRay(Input.GetTouch(0).position);
 

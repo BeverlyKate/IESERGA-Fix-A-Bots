@@ -3,12 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System.Threading.Tasks;
 
 public class MissionCalls : MonoBehaviour
 {
     private Camera myCamera;
     private Ray ray;
     private RaycastHit hit;
+    private SerializeField[] task;
+    private GameObject[] tasklist;
 
     public GameObject missionPanel; 
     public TMP_Text missionText;       

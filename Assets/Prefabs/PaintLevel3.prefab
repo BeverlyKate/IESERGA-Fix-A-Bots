@@ -1462,7 +1462,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4244150169338742052}
   - component: {fileID: -5789049441286679810}
-  - component: {fileID: 2990141944675712947}
   m_Layer: 0
   m_Name: PaintLevel3
   m_TagString: Station
@@ -1507,31 +1506,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1.5, z: 1.5}
   m_Center: {x: 0, y: 0.1777998, z: 0.002321303}
---- !u!114 &2990141944675712947
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5283790026144366931}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8071108270085bc448c44204f6e0c3ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cubeToRotate: {fileID: 8890202827113095021}
-  rotationSpeed: 0.5
-  cylinders:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  blackPanels:
-  - {fileID: 544830549852623518}
-  - {fileID: 3601989787269742836}
-  - {fileID: 8892578947123526888}
-  - {fileID: 2151252984669861856}
-  resetButton: {fileID: 0}
-  proximityThreshold: 0.5
 --- !u!1 &5531402207315748359
 GameObject:
   m_ObjectHideFlags: 0
