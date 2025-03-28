@@ -16,6 +16,7 @@ TagManager:
   - Plate
   - Spray
   - TV
+  - Crank
   layers:
   - Default
   - TransparentFX

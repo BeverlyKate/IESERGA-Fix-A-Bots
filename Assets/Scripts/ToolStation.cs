@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEditor;
 using Unity.VisualScripting;
 using UnityEditor.Experimental.GraphView;
+using TMPro;
 
 /* 
  *
@@ -48,6 +49,11 @@ public class ToolStation : MonoBehaviour
 
     public GameObject[] zoomButtons;
 
+    public TextMeshPro statusText;
+    public GameObject targetObject;
+    public GameObject objectToTeleport;
+    public float offsetY = 1.0f;
+
     Ray GetRay()=> cam.ScreenPointToRay(Input.GetTouch(0).position);
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -60,6 +66,10 @@ public class ToolStation : MonoBehaviour
         roboPart = gameObject.GetComponentInChildren<RobotHead>();
 
         Debug.Log(roboPart.transform.gameObject.name);
+        if (statusText != null)
+    {
+        statusText.text = "Not done";
+    }
     }
 
     // Update is called once per frame
@@ -75,7 +85,6 @@ public class ToolStation : MonoBehaviour
                     HandleClick(Input.GetTouch(0).position);
                 }
             }
-
             else if (Input.GetTouch(0).phase == TouchPhase.Ended)
             {
                 if (draggingObj)
@@ -130,9 +139,15 @@ public class ToolStation : MonoBehaviour
                 }
             }
 
+            // triggers DONE sign
             if (roboPart.checkIncrement())
             {
                 roboPart.triggerDone();
+                if (statusText != null)
+                {
+                    statusText.text = "Done!";
+                }
+                MoveToTargetPosition();
             }
         }
     }
@@ -255,5 +270,21 @@ public class ToolStation : MonoBehaviour
                 }
             }
         }
+    }
+
+    private void MoveToTargetPosition()
+    {
+        if (objectToTeleport != null && targetObject != null)
+        {
+            Vector3 targetPosition = new Vector3(targetObject.transform.position.x, targetObject.transform.position.y + offsetY, targetObject.transform.position.z);
+            objectToTeleport.transform.position = targetPosition;
+        }
+    }
+
+    public void clearHold()
+    {
+        Destroy(chosenBolt);
+        choseNum = -1;
+        draggingObj = false;
     }
 }

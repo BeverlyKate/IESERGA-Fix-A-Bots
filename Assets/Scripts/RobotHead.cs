@@ -75,6 +75,7 @@ public class RobotHead : MonoBehaviour
         return correctPosition[placement];
     }
 
+    //triggers when pattern is complete
     public void triggerDone()
     {
         foreach (GameObject part in completeIndicator)
