@@ -138,7 +138,7 @@ public class ToolStation : MonoBehaviour
                     }
                 }
             }
-
+            
             // triggers DONE sign
             if (roboPart.checkIncrement())
             {
@@ -149,6 +149,7 @@ public class ToolStation : MonoBehaviour
                 }
                 MoveToTargetPosition();
             }
+            
         }
     }
 

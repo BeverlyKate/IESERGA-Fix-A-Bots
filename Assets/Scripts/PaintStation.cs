@@ -18,14 +18,14 @@ public class PaintStation : MonoBehaviour
     private Color[] originalPanelColors;
     private GameObject selectedCylinder = null;
     private float cylinderDepth = 2.0f;
-    
+
 
     Ray GetRay() => cam.ScreenPointToRay(Input.GetTouch(0).position);
 
-    private void Start()
+    void Start()
     {
 
-        cam = gameObject.GetComponentInChildren<Camera>();
+        //cam = gameObject.GetComponentInChildren<Camera>();
 
         initialPositions = new Vector3[cylinders.Length];
         for (int i = 0; i < cylinders.Length; i++)
@@ -54,7 +54,7 @@ public class PaintStation : MonoBehaviour
         }
     }
 
-    private void Update()
+    void Update()
     {
         if (cubeToRotate == null || cylinders == null) return;
 
