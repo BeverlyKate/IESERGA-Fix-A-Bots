@@ -6,6 +6,8 @@ public class WiringGame : MonoBehaviour
     public GameObject RightWire;
     public GameObject Correct1;
     public GameObject Correct2;
+    public GameObject targetObject;
+    public GameObject DisplayText;
 
     public GameObject Red;
     public GameObject Blue;
@@ -16,14 +18,17 @@ public class WiringGame : MonoBehaviour
     public GameObject Yellow1;
 
     public Camera raycastCamera;
+    public float offsetY = 5f;
 
     private string leftWireColor = "none";
     private string rightWireColor = "none";
+    private bool patternMatched = false;
 
     void Start()
     {
         Correct1.GetComponent<MeshRenderer>().enabled = false;
         Correct2.GetComponent<MeshRenderer>().enabled = false;
+        DisplayText.SetActive(false);
 
         if (raycastCamera == null)
         {
@@ -63,6 +68,12 @@ public class WiringGame : MonoBehaviour
                 }
             }
         }
+
+        if (patternMatched)
+        {
+            MoveObjectToTarget(Correct1);
+            MoveObjectToTarget(Correct2);
+        }
     }
 
     void SetLeftWireColor(string color)
@@ -101,16 +112,30 @@ public class WiringGame : MonoBehaviour
 
     void CheckPattern()
     {
-        if ((leftWireColor == "blue" && rightWireColor == "yellow") || 
+        if ((leftWireColor == "blue" && rightWireColor == "yellow") ||
             (leftWireColor == "yellow" && rightWireColor == "blue"))
         {
             Correct1.GetComponent<MeshRenderer>().enabled = true;
             Correct2.GetComponent<MeshRenderer>().enabled = true;
+            DisplayText.SetActive(true);
+            patternMatched = true;
         }
         else
         {
             Correct1.GetComponent<MeshRenderer>().enabled = false;
             Correct2.GetComponent<MeshRenderer>().enabled = false;
+            DisplayText.SetActive(false);
+            patternMatched = false;
+        }
+    }
+
+     void MoveObjectToTarget(GameObject correctWire)
+    {
+        if (targetObject != null)
+        {
+            Vector3 targetPosition = new Vector3(targetObject.transform.position.x, targetObject.transform.position.y + offsetY, targetObject.transform.position.z);
+            correctWire.transform.position = targetPosition;
         }
     }
 }
+
