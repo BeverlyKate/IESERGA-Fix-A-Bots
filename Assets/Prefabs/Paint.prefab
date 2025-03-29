@@ -406,7 +406,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1.5, z: 1.5}
+  m_Size: {x: 1.4, y: 1.5, z: 2.3}
   m_Center: {x: 0, y: 0.1777998, z: 0.002321303}
 --- !u!114 &2523811385032817653
 MonoBehaviour:
@@ -431,6 +431,7 @@ MonoBehaviour:
   - {fileID: 0}
   resetButton: {fileID: 1707012360935990541}
   proximityThreshold: 0.5
+  cam: {fileID: 0}
 --- !u!1 &6541489259611176197
 GameObject:
   m_ObjectHideFlags: 0
@@ -467,7 +468,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 923, y: 720}
+  m_AnchoredPosition: {x: 895, y: 720}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2121787799688895613
@@ -918,8 +919,12 @@ PrefabInstance:
     m_TransformParent: {fileID: 4244150169338742052}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: a4b2b1fc8c6500e418aea942688090bd, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a4b2b1fc8c6500e418aea942688090bd, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.543
+      value: 1.958
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a4b2b1fc8c6500e418aea942688090bd, type: 3}
       propertyPath: m_LocalPosition.y
