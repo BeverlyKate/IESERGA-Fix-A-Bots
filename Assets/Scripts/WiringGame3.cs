@@ -1,4 +1,5 @@
 using UnityEngine;
+using TMPro;
 
 public class WiringGame3 : MonoBehaviour
 {
@@ -12,22 +13,9 @@ public class WiringGame3 : MonoBehaviour
     public GameObject Correct3;
     public GameObject Correct4;
 
-    public GameObject Red1;
-    public GameObject Blue1;
-    public GameObject Yellow1;
-
-    public GameObject Red2;
-    public GameObject Blue2;
-    public GameObject Yellow2;
-
-    public GameObject Red3;
-    public GameObject Blue3;
-    public GameObject Yellow3;
-
-    public GameObject Red4;
-    public GameObject Blue4;
-    public GameObject Yellow4;
-
+    public GameObject targetObject;
+    public float offsetY = 1.0f;
+    public TextMeshPro statusText;
     public Camera raycastCamera;
 
     private string leftWire1Color = "none";
@@ -41,6 +29,11 @@ public class WiringGame3 : MonoBehaviour
         Correct2.GetComponent<MeshRenderer>().enabled = false;
         Correct3.GetComponent<MeshRenderer>().enabled = false;
         Correct4.GetComponent<MeshRenderer>().enabled = false;
+
+        if (statusText != null)
+        {
+            statusText.text = "";
+        }
 
         if (raycastCamera == null)
         {
@@ -104,6 +97,15 @@ public class WiringGame3 : MonoBehaviour
             Correct2.GetComponent<MeshRenderer>().enabled = true;
             Correct3.GetComponent<MeshRenderer>().enabled = true;
             Correct4.GetComponent<MeshRenderer>().enabled = true;
+            MoveToTargetPosition(Correct1);
+            MoveToTargetPosition(Correct2);
+            MoveToTargetPosition(Correct3);
+            MoveToTargetPosition(Correct4);
+
+            if (statusText != null)
+            {
+                statusText.text = "Done!";
+            }
         }
         else
         {
@@ -111,6 +113,20 @@ public class WiringGame3 : MonoBehaviour
             Correct2.GetComponent<MeshRenderer>().enabled = false;
             Correct3.GetComponent<MeshRenderer>().enabled = false;
             Correct4.GetComponent<MeshRenderer>().enabled = false;
+
+            if (statusText != null)
+            {
+                statusText.text = "";
+            }
+        }
+    }
+
+    void MoveToTargetPosition(GameObject correctWire)
+    {
+        if (targetObject != null)
+        {
+            Vector3 targetPosition = new Vector3(targetObject.transform.position.x, targetObject.transform.position.y + offsetY, targetObject.transform.position.z);
+            correctWire.transform.position = targetPosition;
         }
     }
 }
