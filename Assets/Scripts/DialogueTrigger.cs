@@ -10,7 +10,7 @@ public class DialogueTrigger : MonoBehaviour
 
     public void TriggerDialogue()
     {
-        if(nextCharacter<= dialogue.Length)
+        if(nextCharacter< dialogue.Length)
         {
             animator.SetBool("isTalking", true);
             FindAnyObjectByType<DialogueSystem>().StartDialogue(dialogue[nextCharacter]);
