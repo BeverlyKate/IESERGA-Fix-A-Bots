@@ -9,6 +9,8 @@ public class WireSlot : MonoBehaviour
     private MeshRenderer meshRenderer;
     public bool isOccupied = false;
 
+    public bool isCorrect = false;
+
     private void Start()
     {
         meshRenderer = GetComponent<MeshRenderer>();
@@ -23,6 +25,7 @@ public class WireSlot : MonoBehaviour
     {
         isOccupied = occupied;
 
+        isCorrect = correctWire;
         if (meshRenderer != null)
         {
             Material materialInstance = meshRenderer.material; // ✅ Creates a unique material instance

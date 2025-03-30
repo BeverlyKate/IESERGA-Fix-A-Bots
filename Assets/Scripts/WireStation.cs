@@ -14,6 +14,9 @@ public class WireStation : MonoBehaviour
 
     public Camera mainCamera; // Assign in Inspector!
 
+    public Transform targetObject; // Assign in Inspector
+    public float yOffset = 1.0f; // Adjust in Inspector
+
     private void Start()
     {
         if (mainCamera == null)
@@ -133,33 +136,31 @@ public class WireStation : MonoBehaviour
 
 
     private void CheckCorrectOrder()
+{
+    bool allCorrect = true;
+
+    foreach (Transform slot in wireSlots)
     {
-        // Ensure all slots are occupied before checking order
-        if (wires.Count != wireSlots.Length)
-        {
-            correctIndicator.SetActive(false);
-            ResetAllSlots(); // Reset slot colors
-            return;
-        }
+        WireSlot wireSlot = slot.GetComponent<WireSlot>();
 
-        // Sort wires based on X position (left to right)
-        wires.Sort((a, b) => a.transform.position.x.CompareTo(b.transform.position.x));
-
-        // Check if the exact order is Yellow → Red → Red → Red
-        if (wires.Count == 4 &&
-            wires[0].wireColor == WireColor.Yellow &&
-            wires[1].wireColor == WireColor.Red &&
-            wires[2].wireColor == WireColor.Red &&
-            wires[3].wireColor == WireColor.Red)
+        if (wireSlot == null || !wireSlot.isCorrect)
         {
-            correctIndicator.SetActive(true); // Show correct order indicator
-        }
-        else
-        {
-            correctIndicator.SetActive(false);
-            ResetAllSlots(); // Reset slot colors if incorrect
+            allCorrect = false;
+            break;
         }
     }
+
+    if (allCorrect)
+    {
+        correctIndicator.SetActive(true);
+        TeleportWiresToTarget(); // ✅ Move wires when all slots are correct
+    }
+    else
+    {
+        correctIndicator.SetActive(false);
+    }
+}
+
 
     // Reset all wire slots to default material
     private void ResetAllSlots()
@@ -173,6 +174,31 @@ public class WireStation : MonoBehaviour
             }
         }
     }
+
+    private void TeleportWiresToTarget()
+{
+    if (targetObject == null)
+    {
+        Debug.LogWarning("⚠️ Target Object is not assigned!");
+        return;
+    }
+
+    float spacing = 0.5f; // Adjust if needed
+    Vector3 startPosition = targetObject.position - new Vector3((wires.Count - 1) * spacing * 0.5f, 0f, 0f);
+
+    for (int i = 0; i < wires.Count; i++)
+    {
+        Vector3 newPosition = new Vector3(
+            startPosition.x + i * spacing,
+            targetObject.position.y + yOffset,
+            targetObject.position.z
+        );
+
+        wires[i].transform.position = newPosition;
+    }
+
+    Debug.Log("✅ All wires teleported to target!");
+}
 
     private bool CheckIfCorrectWire(Transform slot, Wire wire)
     {
