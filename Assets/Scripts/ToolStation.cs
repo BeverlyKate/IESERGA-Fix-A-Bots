@@ -38,8 +38,6 @@ public class ToolStation : MonoBehaviour
 
     private RobotHead roboPart;
 
-    public GameObject[] zoomButtons;
-
     public TextMeshPro statusText;
     public GameObject targetObject;
     public GameObject objectToTeleport;
