@@ -11,6 +11,8 @@ public class DialogueSystem : MonoBehaviour
     public Image characterImg;
 
     private Queue<string> dialogueSentences;
+    private DialogueTrigger currentTrigger;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
