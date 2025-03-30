@@ -19,6 +19,8 @@ public class MissionCalls : MonoBehaviour
     private bool missionActive = false;  
     private bool missionCompleted = false;
     private bool currentOngoing = false;
+    private bool isTriggered = false;
+    private bool isTriggs = false;
 
     void Start()
     {
@@ -74,6 +76,13 @@ public class MissionCalls : MonoBehaviour
     {
         missionPanel.SetActive(false);
         missionActive = false;
+
+        if (isTriggered == false)
+        {
+            isTriggered = true;
+            DialogueTrigger dialogueTrigger = new DialogueTrigger();
+            dialogueTrigger.TriggerDialogue();
+        }
     }
 
     // Call this method when the mission is completed
@@ -82,6 +91,14 @@ public class MissionCalls : MonoBehaviour
         missionCompleted = true;
         missionPanel.SetActive(false);
         Debug.Log("Mission Completed!");
+
+        if (isTriggs == false)
+        {
+            isTriggs = true;
+            DialogueTrigger dialogueTrigger = new DialogueTrigger();
+            dialogueTrigger.TriggerDialogue();
+        }
+
         if (currentTask < numberOfMission)
         {
             currentTask++;

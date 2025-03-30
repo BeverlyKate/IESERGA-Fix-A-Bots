@@ -11,7 +11,7 @@ public class DialogueTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (!hasTriggered && other.CompareTag("Player")) // Ensure the player is the one triggering it
+        if (!hasTriggered && other.CompareTag("Player")) 
         {
             hasTriggered = true; // Mark as triggered
             TriggerDialogue();
