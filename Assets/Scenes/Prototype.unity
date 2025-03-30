@@ -867,6 +867,7 @@ MonoBehaviour:
   resetButton: {fileID: 1424257032}
   proximityThreshold: 0.5
   cam: {fileID: 911960270}
+  levelCompletePanel: {fileID: 0}
 --- !u!1 &677233792
 GameObject:
   m_ObjectHideFlags: 0
@@ -1022,6 +1023,10 @@ PrefabInstance:
       propertyPath: 'blackPanels.Array.data[1]'
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 2754933286432073011, guid: 9ff9d82183674f04d91711b99158895f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2768095730083960181, guid: 9ff9d82183674f04d91711b99158895f, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.5
@@ -1033,6 +1038,10 @@ PrefabInstance:
     - target: {fileID: 2768095730083960181, guid: 9ff9d82183674f04d91711b99158895f, type: 3}
       propertyPath: m_LocalScale.z
       value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2768095730083960181, guid: 9ff9d82183674f04d91711b99158895f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2768095730083960181, guid: 9ff9d82183674f04d91711b99158895f, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1049,6 +1058,10 @@ PrefabInstance:
     - target: {fileID: 2768095730083960181, guid: 9ff9d82183674f04d91711b99158895f, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 895
+      objectReference: {fileID: 0}
+    - target: {fileID: 2768095730083960181, guid: 9ff9d82183674f04d91711b99158895f, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -487
       objectReference: {fileID: 0}
     - target: {fileID: 2768095730083960181, guid: 9ff9d82183674f04d91711b99158895f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -3324,7 +3337,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue:
-  - spriteImg: {fileID: 0}
+  - spriteImg: {fileID: 21300000, guid: 6d5d73490eecd9f47988be7f19eb44f5, type: 3}
     name: Van
     sentences:
     - To think it's finally time!
@@ -3335,7 +3348,7 @@ MonoBehaviour:
     sentences:
     - Hold your horses there, Van!
     - It's only the first day after all!
-  - spriteImg: {fileID: 0}
+  - spriteImg: {fileID: 21300000, guid: 6d5d73490eecd9f47988be7f19eb44f5, type: 3}
     name: Van
     sentences:
     - I know! It's just so exciting!

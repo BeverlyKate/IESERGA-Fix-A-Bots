@@ -240,9 +240,9 @@ public class ToolStation : MonoBehaviour
                 {
                     Vector3 toolSize = chosenTool.transform.GetComponentInChildren<Renderer>().bounds.size;
                     Vector3 nailSize = nail.transform.GetComponent<Renderer>().bounds.size;
-                    float newHeight = nailSize.y;
+                    float newHeight = nailSize.y + toolSize.z/3;
                     chosenTool.transform.position = new Vector3(nail.transform.position.x, nail.transform.position.y + newHeight, nail.transform.position.z);
-                    chosenTool.transform.eulerAngles = new Vector3(chosenTool.transform.eulerAngles.x, chosenTool.transform.eulerAngles.y + 90f, chosenTool.transform.eulerAngles.z);
+                    chosenTool.transform.eulerAngles = new Vector3(chosenTool.transform.eulerAngles.x - 90f, chosenTool.transform.eulerAngles.y + 90f, chosenTool.transform.eulerAngles.z);
                     onBolt = true;
                     boltToEdit = nail.gameObject;
                     boltPos = roboPart.findFastenerPos(boltToEdit);
