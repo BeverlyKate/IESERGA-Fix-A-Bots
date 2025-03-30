@@ -6,9 +6,13 @@ public class ClockManager : MonoBehaviour
 {
     [SerializeField] private TMP_Text clockText;
 
+    [SerializeField] private GameObject EndofDay;
+
     [SerializeField] private float timeInDay = 86400f;
 
     [SerializeField] private float timeScale = 2.0f;
+
+    private int currentTime;
 
     private float elaspedTime;
 
@@ -18,6 +22,7 @@ public class ClockManager : MonoBehaviour
     void Start()
     {
         elaspedTime = 10 * 3600f;
+        EndofDay.SetActive(false);
     }
 
     // Update is called once per frame
@@ -26,6 +31,7 @@ public class ClockManager : MonoBehaviour
         elaspedTime += Time.deltaTime * timeScale;
         elaspedTime %= timeInDay;
         UpdateTime();
+        CheckWorkTime();
     }
 
     private void UpdateTime()
@@ -49,5 +55,19 @@ public class ClockManager : MonoBehaviour
         string clockString = string.Format("{0:00}:{1:00} {2}", hours, setMinute, ampm);
 
         clockText.text = clockString;
+    }
+
+    private void CheckWorkTime()
+    {
+        if(Mathf.FloorToInt(elaspedTime / 3600f)%12 == 5)
+        {
+            EndWorkTime();
+        }
+    }
+
+    private void EndWorkTime()
+    {
+        EndofDay.SetActive (true);
+        clockText.gameObject.SetActive(false);
     }
 }
