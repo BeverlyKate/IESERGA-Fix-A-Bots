@@ -6,7 +6,7 @@ using System;
 [System.Serializable]
 public class Dialogue
 {
-    public Image spriteImg;
+    public Sprite spriteImg;
 
     public string name;
 

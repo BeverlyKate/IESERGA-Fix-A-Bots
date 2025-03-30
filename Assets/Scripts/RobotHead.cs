@@ -6,7 +6,7 @@ public class RobotHead : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
-    private GameObject[] missingLocations;
+    public GameObject[] missingLocations;
 
     [SerializeField]
     private float[] correctPosition;
@@ -25,7 +25,6 @@ public class RobotHead : MonoBehaviour
 
     void Start()
     {
-        missingLocations = GameObject.FindGameObjectsWithTag("Unknown");
         filledLocations = new GameObject[missingLocations.Length];
     }
 

@@ -20,7 +20,7 @@ public class DialogueSystem : MonoBehaviour
 
     public void StartDialogue(Dialogue dialogue)
     {
-        //characterImg.sprite = currentText.spriteImg.sprite;
+        characterImg.sprite = dialogue.spriteImg;
 
         nameText.text = dialogue.name;
 
