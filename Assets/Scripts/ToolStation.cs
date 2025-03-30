@@ -58,9 +58,9 @@ public class ToolStation : MonoBehaviour
 
         Debug.Log(roboPart.transform.gameObject.name);
         if (statusText != null)
-    {
-        statusText.text = "Not done";
-    }
+        {
+            statusText.text = "Not done";
+        }
     }
 
     // Update is called once per frame

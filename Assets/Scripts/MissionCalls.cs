@@ -58,7 +58,7 @@ public class MissionCalls : MonoBehaviour
     void ShowMission()
     {
         missionPanel.SetActive(true);
-        missionText.text = string.Format("Repair {0} of the day (Check the tables)", currentTask);
+        missionText.text = string.Format("Repair {0} of the day (Check the tables)", currentTask+1);
         missionActive = true;
         if (!currentOngoing)
         {

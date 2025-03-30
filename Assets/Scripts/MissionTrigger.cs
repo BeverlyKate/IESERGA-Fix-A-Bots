@@ -35,9 +35,13 @@ public class MissionTrigger : MonoBehaviour
                     locationToSpawn = station.transform.Find("Location").position;
                     currentSpawn = (GameObject)Instantiate(mission[currentTask].wireTask);
                     currentSpawn.transform.localPosition = locationToSpawn;
-                }else if (station.gameObject.name == "Paint")
+                }
+                else if (station.gameObject.name == "Paint")
                 {
-
+                    locationToSpawn = station.transform.Find("Location").position;
+                    currentSpawn = (GameObject)Instantiate(mission[currentTask].paintTask, station.transform);
+                    station.transform.GetComponent<PaintStation>().cubeToRotate = currentSpawn;
+                    currentSpawn.transform.position = locationToSpawn;
                 }
             }
         }
