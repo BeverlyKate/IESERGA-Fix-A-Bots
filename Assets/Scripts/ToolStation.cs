@@ -5,15 +5,6 @@ using Unity.VisualScripting;
 using UnityEditor.Experimental.GraphView;
 using TMPro;
 
-/* 
- *
- *    TODO:
- *    
- *      Add 2 kinds of zoom in features - 1 zooms into the pattern itself, the other zooms into the individual parts
- *      have option spawn rather than have it be dragged from the table (More convenient)
- *      have tools be icons that appear after option has been placed in the hole.
- * 
- */
 
 public class ToolStation : MonoBehaviour
 {

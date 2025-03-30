@@ -539,7 +539,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: Screw  (10)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2487452300204894320, guid: 9913d36e2cbfde04cb26729c22085d35, type: 3}
+    - {fileID: 7247966221438028794, guid: 9913d36e2cbfde04cb26729c22085d35, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -601,7 +603,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: Nail (6)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2752155993499031860, guid: aeeaba14f52469745a9c00e3865c8d81, type: 3}
+    - {fileID: 2082112709043482552, guid: aeeaba14f52469745a9c00e3865c8d81, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -663,7 +667,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: Screw  (9)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2487452300204894320, guid: 9913d36e2cbfde04cb26729c22085d35, type: 3}
+    - {fileID: 7247966221438028794, guid: 9913d36e2cbfde04cb26729c22085d35, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -725,7 +731,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: Nail (1)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2752155993499031860, guid: aeeaba14f52469745a9c00e3865c8d81, type: 3}
+    - {fileID: 2082112709043482552, guid: aeeaba14f52469745a9c00e3865c8d81, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -787,7 +795,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: Screw  (7)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2487452300204894320, guid: 9913d36e2cbfde04cb26729c22085d35, type: 3}
+    - {fileID: 7247966221438028794, guid: 9913d36e2cbfde04cb26729c22085d35, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -849,7 +859,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: Nail (7)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2752155993499031860, guid: aeeaba14f52469745a9c00e3865c8d81, type: 3}
+    - {fileID: 2082112709043482552, guid: aeeaba14f52469745a9c00e3865c8d81, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -911,7 +923,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: Nail (3)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2752155993499031860, guid: aeeaba14f52469745a9c00e3865c8d81, type: 3}
+    - {fileID: 2082112709043482552, guid: aeeaba14f52469745a9c00e3865c8d81, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -981,7 +995,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: Screw  (8)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2487452300204894320, guid: 9913d36e2cbfde04cb26729c22085d35, type: 3}
+    - {fileID: 7247966221438028794, guid: 9913d36e2cbfde04cb26729c22085d35, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -1043,7 +1059,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: Screw  (3)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2487452300204894320, guid: 9913d36e2cbfde04cb26729c22085d35, type: 3}
+    - {fileID: 7247966221438028794, guid: 9913d36e2cbfde04cb26729c22085d35, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -1105,7 +1123,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: Nail
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2752155993499031860, guid: aeeaba14f52469745a9c00e3865c8d81, type: 3}
+    - {fileID: 2082112709043482552, guid: aeeaba14f52469745a9c00e3865c8d81, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -1229,7 +1249,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: 'Screw '
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2487452300204894320, guid: 9913d36e2cbfde04cb26729c22085d35, type: 3}
+    - {fileID: 7247966221438028794, guid: 9913d36e2cbfde04cb26729c22085d35, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -1353,7 +1375,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: Screw  (4)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2487452300204894320, guid: 9913d36e2cbfde04cb26729c22085d35, type: 3}
+    - {fileID: 7247966221438028794, guid: 9913d36e2cbfde04cb26729c22085d35, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -1423,7 +1447,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: Screw  (2)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2487452300204894320, guid: 9913d36e2cbfde04cb26729c22085d35, type: 3}
+    - {fileID: 7247966221438028794, guid: 9913d36e2cbfde04cb26729c22085d35, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -1485,7 +1511,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: Nail (2)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2752155993499031860, guid: aeeaba14f52469745a9c00e3865c8d81, type: 3}
+    - {fileID: 2082112709043482552, guid: aeeaba14f52469745a9c00e3865c8d81, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -1547,7 +1575,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: Nail (5)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2752155993499031860, guid: aeeaba14f52469745a9c00e3865c8d81, type: 3}
+    - {fileID: 2082112709043482552, guid: aeeaba14f52469745a9c00e3865c8d81, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -1609,7 +1639,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: Screw  (6)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2487452300204894320, guid: 9913d36e2cbfde04cb26729c22085d35, type: 3}
+    - {fileID: 7247966221438028794, guid: 9913d36e2cbfde04cb26729c22085d35, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -1679,7 +1711,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: Screw  (5)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2487452300204894320, guid: 9913d36e2cbfde04cb26729c22085d35, type: 3}
+    - {fileID: 7247966221438028794, guid: 9913d36e2cbfde04cb26729c22085d35, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
