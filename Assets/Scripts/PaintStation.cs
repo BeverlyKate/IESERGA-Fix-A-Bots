@@ -13,12 +13,14 @@ public class PaintStation : MonoBehaviour
     public float proximityThreshold = 0.001f;
     public Camera cam;
 
+    public GameObject levelCompletePanel;
 
     private Vector3[] initialPositions;
     private Color[] originalPanelColors;
     private GameObject selectedCylinder = null;
     private float cylinderDepth = 2.0f;
 
+    private Dictionary<string, List<Color>> targetColors = new Dictionary<string, List<Color>>();
 
     Ray GetRay() => cam.ScreenPointToRay(Input.GetTouch(0).position);
 
@@ -52,6 +54,13 @@ public class PaintStation : MonoBehaviour
         {
             Debug.LogError("Reset button is not assigned in the inspector!");
         }
+
+        levelCompletePanel.SetActive(false); // Hide the level completion panel initially
+
+        // Define target colors for different cubeToRotate names
+        targetColors["Robot Body 1"] = new List<Color> { Color.blue, Color.yellow };
+        targetColors["Robot Body 2"] = new List<Color> { Color.blue, Color.green, new Color(0.5842372f, 0.2320754f, 1.0f)};
+        targetColors["Robot Body 3"] = new List<Color> { Color.yellow, Color.green, Color.blue, Color.red};
     }
 
     void Update()
@@ -110,6 +119,8 @@ public class PaintStation : MonoBehaviour
                         }
 
                         selectedCylinder = null;
+
+                        CheckLevelCompletion();
                     }
                     break;
             }
@@ -189,6 +200,69 @@ public class PaintStation : MonoBehaviour
                 }
             }
         }
+    }
+
+    private void CheckLevelCompletion()
+    {
+        string objectName = cubeToRotate.name;
+        if (!targetColors.ContainsKey(objectName))
+        {
+            Debug.LogError("No target colors assigned for " + objectName);
+            return;
+        }
+
+        List<Color> requiredColors = targetColors[objectName];
+        List<Color> currentColors = new List<Color>();
+
+        foreach (GameObject panel in blackPanels)
+        {
+            Renderer panelRenderer = panel.GetComponent<Renderer>();
+            if (panelRenderer != null)
+            {
+                currentColors.Add(panelRenderer.material.color);
+            }
+        }
+
+        if (AreListsEqual(requiredColors, currentColors))
+        {
+            Debug.Log("Level Completed!");
+            levelCompletePanel.SetActive(true);
+            StartCoroutine(HidePanelAfterDelay());
+            resetButton.gameObject.SetActive(false);
+
+            foreach (GameObject cylinder in cylinders)
+            {
+                cylinder.SetActive(false);  // Hide cylinders
+            }
+        }
+    }
+
+    IEnumerator HidePanelAfterDelay()
+    {
+        yield return new WaitForSeconds(3f);
+        levelCompletePanel.SetActive(false);
+    }
+
+    private bool AreListsEqual(List<Color> list1, List<Color> list2)
+    {
+        if (list1.Count != list2.Count) return false;
+
+        for (int i = 0; i < list1.Count; i++)
+        {
+            if (!ApproximatelyEqual(list1[i], list2[i]))
+            {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    private bool ApproximatelyEqual(Color a, Color b)
+    {
+        return Mathf.Abs(a.r - b.r) < 0.1f &&
+               Mathf.Abs(a.g - b.g) < 0.1f &&
+               Mathf.Abs(a.b - b.b) < 0.1f;
     }
 
     private bool IsBlackColor(Color color)
