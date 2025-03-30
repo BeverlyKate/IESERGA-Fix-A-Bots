@@ -1690,6 +1690,53 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1 &542582621
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 542582623}
+  - component: {fileID: 542582622}
+  m_Layer: 0
+  m_Name: Dialogue Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &542582622
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 542582621}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87085a849d18a084dab5a49a3d18ebbf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nameText: {fileID: 0}
+  dialogueText: {fileID: 0}
+  characterImg: {fileID: 0}
+--- !u!4 &542582623
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 542582621}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1095.4403, y: 469.7532, z: -159.24792}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!43 &561450754
 Mesh:
   m_ObjectHideFlags: 0
@@ -2020,6 +2067,362 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1001 &706687956
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2687301813594856360, guid: 2658dc794eed3f64c90df44b6c0462c2, type: 3}
+      propertyPath: dialogue.Array.size
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 2687301813594856360, guid: 2658dc794eed3f64c90df44b6c0462c2, type: 3}
+      propertyPath: dialogue.Array.data[1].name
+      value: Robot Companion
+      objectReference: {fileID: 0}
+    - target: {fileID: 2687301813594856360, guid: 2658dc794eed3f64c90df44b6c0462c2, type: 3}
+      propertyPath: dialogue.Array.data[3].name
+      value: Robot Companion
+      objectReference: {fileID: 0}
+    - target: {fileID: 2687301813594856360, guid: 2658dc794eed3f64c90df44b6c0462c2, type: 3}
+      propertyPath: dialogue.Array.data[4].name
+      value: Van
+      objectReference: {fileID: 0}
+    - target: {fileID: 2687301813594856360, guid: 2658dc794eed3f64c90df44b6c0462c2, type: 3}
+      propertyPath: dialogue.Array.data[5].name
+      value: Robot Companion
+      objectReference: {fileID: 0}
+    - target: {fileID: 2687301813594856360, guid: 2658dc794eed3f64c90df44b6c0462c2, type: 3}
+      propertyPath: dialogue.Array.data[6].name
+      value: Robot Companion
+      objectReference: {fileID: 0}
+    - target: {fileID: 2687301813594856360, guid: 2658dc794eed3f64c90df44b6c0462c2, type: 3}
+      propertyPath: dialogue.Array.data[7].name
+      value: Van
+      objectReference: {fileID: 0}
+    - target: {fileID: 2687301813594856360, guid: 2658dc794eed3f64c90df44b6c0462c2, type: 3}
+      propertyPath: dialogue.Array.data[8].name
+      value: Robot Companion
+      objectReference: {fileID: 0}
+    - target: {fileID: 2687301813594856360, guid: 2658dc794eed3f64c90df44b6c0462c2, type: 3}
+      propertyPath: dialogue.Array.data[9].name
+      value: Van
+      objectReference: {fileID: 0}
+    - target: {fileID: 2687301813594856360, guid: 2658dc794eed3f64c90df44b6c0462c2, type: 3}
+      propertyPath: dialogue.Array.data[10].name
+      value: Robot Companion
+      objectReference: {fileID: 0}
+    - target: {fileID: 2687301813594856360, guid: 2658dc794eed3f64c90df44b6c0462c2, type: 3}
+      propertyPath: dialogue.Array.data[11].name
+      value: Van
+      objectReference: {fileID: 0}
+    - target: {fileID: 2687301813594856360, guid: 2658dc794eed3f64c90df44b6c0462c2, type: 3}
+      propertyPath: dialogue.Array.data[12].name
+      value: Robot Companion
+      objectReference: {fileID: 0}
+    - target: {fileID: 2687301813594856360, guid: 2658dc794eed3f64c90df44b6c0462c2, type: 3}
+      propertyPath: dialogue.Array.data[13].name
+      value: Van
+      objectReference: {fileID: 0}
+    - target: {fileID: 2687301813594856360, guid: 2658dc794eed3f64c90df44b6c0462c2, type: 3}
+      propertyPath: dialogue.Array.data[14].name
+      value: Robot Companion
+      objectReference: {fileID: 0}
+    - target: {fileID: 2687301813594856360, guid: 2658dc794eed3f64c90df44b6c0462c2, type: 3}
+      propertyPath: dialogue.Array.data[0].spriteImg
+      value: 
+      objectReference: {fileID: 21300000, guid: 6d5d73490eecd9f47988be7f19eb44f5, type: 3}
+    - target: {fileID: 2687301813594856360, guid: 2658dc794eed3f64c90df44b6c0462c2, type: 3}
+      propertyPath: dialogue.Array.data[2].spriteImg
+      value: 
+      objectReference: {fileID: 21300000, guid: 6d5d73490eecd9f47988be7f19eb44f5, type: 3}
+    - target: {fileID: 2687301813594856360, guid: 2658dc794eed3f64c90df44b6c0462c2, type: 3}
+      propertyPath: dialogue.Array.data[4].spriteImg
+      value: 
+      objectReference: {fileID: 21300000, guid: 6d5d73490eecd9f47988be7f19eb44f5, type: 3}
+    - target: {fileID: 2687301813594856360, guid: 2658dc794eed3f64c90df44b6c0462c2, type: 3}
+      propertyPath: dialogue.Array.data[7].spriteImg
+      value: 
+      objectReference: {fileID: 21300000, guid: 6d5d73490eecd9f47988be7f19eb44f5, type: 3}
+    - target: {fileID: 2687301813594856360, guid: 2658dc794eed3f64c90df44b6c0462c2, type: 3}
+      propertyPath: dialogue.Array.data[9].spriteImg
+      value: 
+      objectReference: {fileID: 21300000, guid: 6d5d73490eecd9f47988be7f19eb44f5, type: 3}
+    - target: {fileID: 2687301813594856360, guid: 2658dc794eed3f64c90df44b6c0462c2, type: 3}
+      propertyPath: dialogue.Array.data[11].spriteImg
+      value: 
+      objectReference: {fileID: 21300000, guid: 6d5d73490eecd9f47988be7f19eb44f5, type: 3}
+    - target: {fileID: 2687301813594856360, guid: 2658dc794eed3f64c90df44b6c0462c2, type: 3}
+      propertyPath: dialogue.Array.data[13].spriteImg
+      value: 
+      objectReference: {fileID: 21300000, guid: 6d5d73490eecd9f47988be7f19eb44f5, type: 3}
+    - target: {fileID: 2687301813594856360, guid: 2658dc794eed3f64c90df44b6c0462c2, type: 3}
+      propertyPath: dialogue.Array.data[0].sentences.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2687301813594856360, guid: 2658dc794eed3f64c90df44b6c0462c2, type: 3}
+      propertyPath: dialogue.Array.data[1].sentences.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2687301813594856360, guid: 2658dc794eed3f64c90df44b6c0462c2, type: 3}
+      propertyPath: dialogue.Array.data[2].sentences.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2687301813594856360, guid: 2658dc794eed3f64c90df44b6c0462c2, type: 3}
+      propertyPath: dialogue.Array.data[3].sentences.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2687301813594856360, guid: 2658dc794eed3f64c90df44b6c0462c2, type: 3}
+      propertyPath: dialogue.Array.data[4].sentences.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2687301813594856360, guid: 2658dc794eed3f64c90df44b6c0462c2, type: 3}
+      propertyPath: dialogue.Array.data[5].sentences.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2687301813594856360, guid: 2658dc794eed3f64c90df44b6c0462c2, type: 3}
+      propertyPath: dialogue.Array.data[6].sentences.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2687301813594856360, guid: 2658dc794eed3f64c90df44b6c0462c2, type: 3}
+      propertyPath: dialogue.Array.data[7].sentences.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2687301813594856360, guid: 2658dc794eed3f64c90df44b6c0462c2, type: 3}
+      propertyPath: dialogue.Array.data[8].sentences.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2687301813594856360, guid: 2658dc794eed3f64c90df44b6c0462c2, type: 3}
+      propertyPath: dialogue.Array.data[9].sentences.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2687301813594856360, guid: 2658dc794eed3f64c90df44b6c0462c2, type: 3}
+      propertyPath: dialogue.Array.data[10].sentences.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2687301813594856360, guid: 2658dc794eed3f64c90df44b6c0462c2, type: 3}
+      propertyPath: dialogue.Array.data[11].sentences.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2687301813594856360, guid: 2658dc794eed3f64c90df44b6c0462c2, type: 3}
+      propertyPath: dialogue.Array.data[12].sentences.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2687301813594856360, guid: 2658dc794eed3f64c90df44b6c0462c2, type: 3}
+      propertyPath: dialogue.Array.data[13].sentences.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2687301813594856360, guid: 2658dc794eed3f64c90df44b6c0462c2, type: 3}
+      propertyPath: dialogue.Array.data[14].sentences.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2687301813594856360, guid: 2658dc794eed3f64c90df44b6c0462c2, type: 3}
+      propertyPath: 'dialogue.Array.data[0].sentences.Array.data[0]'
+      value: "Alright! It\u2019s finally opening time!"
+      objectReference: {fileID: 0}
+    - target: {fileID: 2687301813594856360, guid: 2658dc794eed3f64c90df44b6c0462c2, type: 3}
+      propertyPath: 'dialogue.Array.data[1].sentences.Array.data[0]'
+      value: "Woah!! Hold your horses, Van! It\u2019s still our first day!\r"
+      objectReference: {fileID: 0}
+    - target: {fileID: 2687301813594856360, guid: 2658dc794eed3f64c90df44b6c0462c2, type: 3}
+      propertyPath: 'dialogue.Array.data[2].sentences.Array.data[0]'
+      value: "I know, I know. It\u2019s just so exciting! We finally managed to get
+        our own shop! Despite it being a little cramped, and scary."
+      objectReference: {fileID: 0}
+    - target: {fileID: 2687301813594856360, guid: 2658dc794eed3f64c90df44b6c0462c2, type: 3}
+      propertyPath: 'dialogue.Array.data[3].sentences.Array.data[0]'
+      value: "Cramped is an understatement, I would say.\r"
+      objectReference: {fileID: 0}
+    - target: {fileID: 2687301813594856360, guid: 2658dc794eed3f64c90df44b6c0462c2, type: 3}
+      propertyPath: 'dialogue.Array.data[3].sentences.Array.data[1]'
+      value: "Anyways, you remember the plan we came up with last week right?\r"
+      objectReference: {fileID: 0}
+    - target: {fileID: 2687301813594856360, guid: 2658dc794eed3f64c90df44b6c0462c2, type: 3}
+      propertyPath: 'dialogue.Array.data[4].sentences.Array.data[0]'
+      value: "I know, I know. It\u2019s just so exciting! We finally managed to get
+        our own shop! Despite it being a little cramped, and scary."
+      objectReference: {fileID: 0}
+    - target: {fileID: 2687301813594856360, guid: 2658dc794eed3f64c90df44b6c0462c2, type: 3}
+      propertyPath: 'dialogue.Array.data[5].sentences.Array.data[0]'
+      value: Cramped is an understatement, I would say.
+      objectReference: {fileID: 0}
+    - target: {fileID: 2687301813594856360, guid: 2658dc794eed3f64c90df44b6c0462c2, type: 3}
+      propertyPath: 'dialogue.Array.data[6].sentences.Array.data[0]'
+      value: 'Anyways, you remember the plan we came up with last week right?
+
+'
+      objectReference: {fileID: 0}
+    - target: {fileID: 2687301813594856360, guid: 2658dc794eed3f64c90df44b6c0462c2, type: 3}
+      propertyPath: 'dialogue.Array.data[7].sentences.Array.data[0]'
+      value: What plan?
+      objectReference: {fileID: 0}
+    - target: {fileID: 2687301813594856360, guid: 2658dc794eed3f64c90df44b6c0462c2, type: 3}
+      propertyPath: 'dialogue.Array.data[8].sentences.Array.data[0]'
+      value: "\u2026..\r\n"
+      objectReference: {fileID: 0}
+    - target: {fileID: 2687301813594856360, guid: 2658dc794eed3f64c90df44b6c0462c2, type: 3}
+      propertyPath: 'dialogue.Array.data[9].sentences.Array.data[0]'
+      value: ....
+      objectReference: {fileID: 0}
+    - target: {fileID: 2687301813594856360, guid: 2658dc794eed3f64c90df44b6c0462c2, type: 3}
+      propertyPath: 'dialogue.Array.data[10].sentences.Array.data[0]'
+      value: "\u2026\u2026\u2026."
+      objectReference: {fileID: 0}
+    - target: {fileID: 2687301813594856360, guid: 2658dc794eed3f64c90df44b6c0462c2, type: 3}
+      propertyPath: 'dialogue.Array.data[11].sentences.Array.data[0]'
+      value: "Hey! The screen\u2019s lit up!"
+      objectReference: {fileID: 0}
+    - target: {fileID: 2687301813594856360, guid: 2658dc794eed3f64c90df44b6c0462c2, type: 3}
+      propertyPath: 'dialogue.Array.data[12].sentences.Array.data[0]'
+      value: Do you remember what that means?
+      objectReference: {fileID: 0}
+    - target: {fileID: 2687301813594856360, guid: 2658dc794eed3f64c90df44b6c0462c2, type: 3}
+      propertyPath: 'dialogue.Array.data[13].sentences.Array.data[0]'
+      value: Someone has a bot that needs repairing!
+      objectReference: {fileID: 0}
+    - target: {fileID: 2687301813594856360, guid: 2658dc794eed3f64c90df44b6c0462c2, type: 3}
+      propertyPath: 'dialogue.Array.data[14].sentences.Array.data[0]'
+      value: "That\u2019s right!"
+      objectReference: {fileID: 0}
+    - target: {fileID: 2687301813594856360, guid: 2658dc794eed3f64c90df44b6c0462c2, type: 3}
+      propertyPath: 'dialogue.Array.data[14].sentences.Array.data[1]'
+      value: 'Just tap on the TV to get the parts that need repairing.
+
+'
+      objectReference: {fileID: 0}
+    - target: {fileID: 2855957458792436822, guid: 2658dc794eed3f64c90df44b6c0462c2, type: 3}
+      propertyPath: m_Name
+      value: Dialogue UI
+      objectReference: {fileID: 0}
+    - target: {fileID: 3246335303975620539, guid: 2658dc794eed3f64c90df44b6c0462c2, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -210
+      objectReference: {fileID: 0}
+    - target: {fileID: 7850387631283989411, guid: 2658dc794eed3f64c90df44b6c0462c2, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7850387631283989411, guid: 2658dc794eed3f64c90df44b6c0462c2, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7850387631283989411, guid: 2658dc794eed3f64c90df44b6c0462c2, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7850387631283989411, guid: 2658dc794eed3f64c90df44b6c0462c2, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7850387631283989411, guid: 2658dc794eed3f64c90df44b6c0462c2, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7850387631283989411, guid: 2658dc794eed3f64c90df44b6c0462c2, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7850387631283989411, guid: 2658dc794eed3f64c90df44b6c0462c2, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7850387631283989411, guid: 2658dc794eed3f64c90df44b6c0462c2, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7850387631283989411, guid: 2658dc794eed3f64c90df44b6c0462c2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7850387631283989411, guid: 2658dc794eed3f64c90df44b6c0462c2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7850387631283989411, guid: 2658dc794eed3f64c90df44b6c0462c2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7850387631283989411, guid: 2658dc794eed3f64c90df44b6c0462c2, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7850387631283989411, guid: 2658dc794eed3f64c90df44b6c0462c2, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7850387631283989411, guid: 2658dc794eed3f64c90df44b6c0462c2, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7850387631283989411, guid: 2658dc794eed3f64c90df44b6c0462c2, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7850387631283989411, guid: 2658dc794eed3f64c90df44b6c0462c2, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7850387631283989411, guid: 2658dc794eed3f64c90df44b6c0462c2, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7850387631283989411, guid: 2658dc794eed3f64c90df44b6c0462c2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7850387631283989411, guid: 2658dc794eed3f64c90df44b6c0462c2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7850387631283989411, guid: 2658dc794eed3f64c90df44b6c0462c2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2855957458792436822, guid: 2658dc794eed3f64c90df44b6c0462c2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 706687959}
+  m_SourcePrefab: {fileID: 100100000, guid: 2658dc794eed3f64c90df44b6c0462c2, type: 3}
+--- !u!1 &706687957 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2855957458792436822, guid: 2658dc794eed3f64c90df44b6c0462c2, type: 3}
+  m_PrefabInstance: {fileID: 706687956}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &706687958 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 499739471429708187, guid: 2658dc794eed3f64c90df44b6c0462c2, type: 3}
+  m_PrefabInstance: {fileID: 706687956}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &706687959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 706687957}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7ae9df3bb925804391492bd27840ae8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+  - spriteImg: {fileID: 0}
+    name: Van
+    sentences:
+    - Alright!! Day 2!!
+  - spriteImg: {fileID: 21300000, guid: 6d5d73490eecd9f47988be7f19eb44f5, type: 3}
+    name: Robot Companion
+    sentences:
+    - 'Time to open shop!!
+
+'
+  animator: {fileID: 706687958}
 --- !u!1001 &711663656
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3096,7 +3499,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 547353668578768853, guid: 9ff9d82183674f04d91711b99158895f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 9ff9d82183674f04d91711b99158895f, type: 3}
 --- !u!1 &1146291927
 GameObject:
@@ -3481,6 +3887,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clockText: {fileID: 1540968773}
+  EndofDay: {fileID: 0}
   timeInDay: 86400
   timeScale: 60
 --- !u!1001 &1289175404
@@ -5945,6 +6352,8 @@ SceneRoots:
   - {fileID: 1682849515}
   - {fileID: 1141822237}
   - {fileID: 711663656}
+  - {fileID: 706687956}
   - {fileID: 754882106}
   - {fileID: 1542862845}
   - {fileID: 305861832}
+  - {fileID: 542582623}
