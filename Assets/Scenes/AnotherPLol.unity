@@ -1147,6 +1147,10 @@ PrefabInstance:
       propertyPath: m_OcclusionCulling
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6541489259611176197, guid: 9ff9d82183674f04d91711b99158895f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6652869528607181922, guid: 9ff9d82183674f04d91711b99158895f, type: 3}
       propertyPath: m_IsTrigger
       value: 0
@@ -1231,6 +1235,7 @@ PrefabInstance:
     - {fileID: 2523811385032817653, guid: 9ff9d82183674f04d91711b99158895f, type: 3}
     m_RemovedGameObjects:
     - {fileID: 2754933286432073011, guid: 9ff9d82183674f04d91711b99158895f, type: 3}
+    - {fileID: 122399710439510609, guid: 9ff9d82183674f04d91711b99158895f, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 4244150169338742052, guid: 9ff9d82183674f04d91711b99158895f, type: 3}
       insertIndex: 5
@@ -1239,6 +1244,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5283790026144366931, guid: 9ff9d82183674f04d91711b99158895f, type: 3}
       insertIndex: -1
       addedObject: {fileID: 669251269}
+    - targetCorrespondingSourceObject: {fileID: 7423361260794927830, guid: 9ff9d82183674f04d91711b99158895f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1490536176}
+    - targetCorrespondingSourceObject: {fileID: 547353668578768853, guid: 9ff9d82183674f04d91711b99158895f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 9ff9d82183674f04d91711b99158895f, type: 3}
 --- !u!1 &754882101
 GameObject:
@@ -1728,6 +1739,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clockText: {fileID: 1540968773}
+  EndofDay: {fileID: 0}
   timeInDay: 86400
   timeScale: 60
 --- !u!1 &1199872562 stripped
@@ -2465,6 +2477,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1433889328}
   m_CullTransparentMesh: 1
+--- !u!1 &1490536172 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7423361260794927830, guid: 9ff9d82183674f04d91711b99158895f, type: 3}
+  m_PrefabInstance: {fileID: 742607845}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1490536176
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1490536172}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ef6761d33a853c47a0a4b4abf6c6985, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  resetButton: {fileID: 1424257032}
 --- !u!1 &1495788335
 GameObject:
   m_ObjectHideFlags: 0

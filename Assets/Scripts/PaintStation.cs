@@ -28,26 +28,13 @@ public class PaintStation : MonoBehaviour
 
     void Start()
     {
-        
-        //cam = gameObject.GetComponentInChildren<Camera>();
-        //blackPanels = new GameObject[] { };
-
+        resetButton.gameObject.SetActive(false);
         initialPositions = new Vector3[cylinders.Length];
         for (int i = 0; i < cylinders.Length; i++)
         {
             initialPositions[i] = cylinders[i].transform.position;
         }
-        /*
-        originalPanelColors = new Color[blackPanels.Length];
-        for (int i = 0; i < blackPanels.Length; i++)
-        {
-            Renderer panelRenderer = blackPanels[i].GetComponent<Renderer>();
-            if (panelRenderer != null)
-            {
-                originalPanelColors[i] = Color.black; // Ensures true black for reset
-            }
-        }
-        */
+        
 
         if (resetButton != null)
         {
@@ -75,6 +62,7 @@ public class PaintStation : MonoBehaviour
 
     void Update()
     {
+
         originalPanelColors = new Color[blackPanels.Length];
         for (int i = 0; i < blackPanels.Length; i++)
         {
@@ -146,6 +134,7 @@ public class PaintStation : MonoBehaviour
             }
         }
     }
+
 
     private void FindAndColorPlateUnderCylinder(GameObject cylinder)
     {
@@ -250,8 +239,6 @@ public class PaintStation : MonoBehaviour
             {
                 statusText.text = "Done!";
             }
-            resetButton.gameObject.SetActive(false);
-
             /*
             foreach (GameObject cylinder in cylinders)
             {

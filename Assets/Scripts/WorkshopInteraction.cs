@@ -1,4 +1,6 @@
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.UIElements;
 
 public class WorkshopInteraction : MonoBehaviour
 {
