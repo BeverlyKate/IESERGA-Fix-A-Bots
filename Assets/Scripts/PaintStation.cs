@@ -30,7 +30,7 @@ public class PaintStation : MonoBehaviour
     {
         
         //cam = gameObject.GetComponentInChildren<Camera>();
-        blackPanels = new GameObject[] { };
+        //blackPanels = new GameObject[] { };
 
         initialPositions = new Vector3[cylinders.Length];
         for (int i = 0; i < cylinders.Length; i++)

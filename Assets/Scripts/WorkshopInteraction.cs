@@ -63,11 +63,13 @@ public class WorkshopInteraction : MonoBehaviour
                     Debug.LogError("Camera not found in " + clickedObject.name);
                 }
 
+                
                 DialogueTrigger dialogueTrigger = clickedObject.GetComponent<DialogueTrigger>();
                 if (dialogueTrigger != null)
                 {
                     dialogueTrigger.TriggerDialogue(); // Start dialogue after zooming
                 }
+                
             }
         }
             /*
