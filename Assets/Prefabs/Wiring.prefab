@@ -682,6 +682,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8091254996509251573}
   - component: {fileID: 1817464431914491187}
+  - component: {fileID: 6866417270157017029}
   m_Layer: 0
   m_Name: Wiring
   m_TagString: Station
@@ -730,6 +731,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 0.772945, z: 2.5605993}
   m_Center: {x: 0, y: 0.011266738, z: -0.41497302}
+--- !u!114 &6866417270157017029
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2767950185021021532}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0735b75aec378a5429124d126b107081, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  camera: {fileID: 8382563690227395609}
 --- !u!1 &3314916809768906275
 GameObject:
   m_ObjectHideFlags: 0

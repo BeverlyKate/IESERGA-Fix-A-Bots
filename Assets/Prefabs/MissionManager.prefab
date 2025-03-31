@@ -464,7 +464,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69b1d3c85544c9c4ba34761824ea6da4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mission: []
+  mission:
+  - paintTask: {fileID: 0}
+    toolTask: {fileID: 0}
+    wireTask: {fileID: 0}
+  - paintTask: {fileID: 0}
+    toolTask: {fileID: 0}
+    wireTask: {fileID: 0}
 --- !u!1 &5131905705343066475
 GameObject:
   m_ObjectHideFlags: 0

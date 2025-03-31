@@ -44,6 +44,7 @@ public class MissionTrigger : MonoBehaviour
                     locationToSpawn = station.transform.Find("Location").position;
                     currentSpawn = (GameObject)Instantiate(mission[currentTask].wireTask);
                     currentSpawn.transform.localPosition = locationToSpawn;
+                    currentSpawn.GetComponentInChildren<WireStation>().mainCamera = station.GetComponent<Wiring>().camera;
                 }
                 else if (station.gameObject.name == "Paint")
                 {
