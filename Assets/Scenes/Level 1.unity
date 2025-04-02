@@ -435,7 +435,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dayStart: {fileID: 1590318814}
   TaskTutorial: {fileID: 1011834569}
-  afterTask: {fileID: 427495970}
+  ToolTutorial: {fileID: 2112408064}
+  ToolTutorial2: {fileID: 1814554091}
+  ToolTutorial3: {fileID: 1267370944}
+  PaintTutorial: {fileID: 999778914}
+  WireTutorial: {fileID: 1492181523}
+  WireTutorial2: {fileID: 2079801265}
+  AfterEverything: {fileID: 811491946}
+  cam: {fileID: 1682849514}
+  afterTaskBtn: {fileID: 427495970}
+  toolZoomBtn: {fileID: 659199679}
+  toolRotateBtn: {fileID: 884924101}
 --- !u!1 &274384328
 GameObject:
   m_ObjectHideFlags: 0
@@ -847,6 +857,10 @@ PrefabInstance:
       value: MissionManager
       objectReference: {fileID: 0}
     - target: {fileID: 3808781586596140029, guid: eb528dbb004ead94b8c5a43d003bd617, type: 3}
+      propertyPath: targetTelepotPosition
+      value: 
+      objectReference: {fileID: 1930298604}
+    - target: {fileID: 3808781586596140029, guid: eb528dbb004ead94b8c5a43d003bd617, type: 3}
       propertyPath: mission.Array.data[0].toolTask
       value: 
       objectReference: {fileID: 4735438937895505712, guid: bee74aa25d76f4b40b64218ce52470f3, type: 3}
@@ -991,6 +1005,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eb528dbb004ead94b8c5a43d003bd617, type: 3}
+--- !u!114 &659199679 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2574240893788439077, guid: f57cf41c75c2eb3408691d1a73813a12, type: 3}
+  m_PrefabInstance: {fileID: 1289175404}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &754882107 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2370594579930396010, guid: d9d3df8aa3fba204999ad12161393d60, type: 3}
@@ -1000,6 +1025,75 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d51d4a061ec775d46ba438f52a34f258, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &811491946
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 811491948}
+  - component: {fileID: 811491947}
+  m_Layer: 0
+  m_Name: After Task
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &811491947
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 811491946}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7ae9df3bb925804391492bd27840ae8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+  - spriteImg: {fileID: 0}
+    name: Van
+    sentences:
+    - That was a lot harder than I thought.
+  - spriteImg: {fileID: 0}
+    name: Robot Companion
+    sentences:
+    - "You got paid for it though. That\u2019s something.\r\n"
+  - spriteImg: {fileID: 0}
+    name: Van
+    sentences:
+    - "I know. Anyways, I think we still have enough time to get one more repair.\r"
+  animator: {fileID: 1093678385}
+--- !u!4 &811491948
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 811491946}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.5882473, y: 0.039431542, z: 1.5065197}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &884924101 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9209814862245663553, guid: f57cf41c75c2eb3408691d1a73813a12, type: 3}
+  m_PrefabInstance: {fileID: 1289175404}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &957304392
@@ -1726,7 +1820,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4244150169338742052, guid: 9ff9d82183674f04d91711b99158895f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.82
+      value: -1.53
       objectReference: {fileID: 0}
     - target: {fileID: 4244150169338742052, guid: 9ff9d82183674f04d91711b99158895f, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1734,7 +1828,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4244150169338742052, guid: 9ff9d82183674f04d91711b99158895f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1.5925858
+      value: -1.52
       objectReference: {fileID: 0}
     - target: {fileID: 4244150169338742052, guid: 9ff9d82183674f04d91711b99158895f, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2009,6 +2103,75 @@ MonoBehaviour:
   EndofDay: {fileID: 589565736}
   timeInDay: 86400
   timeScale: 60
+--- !u!1 &1267370944
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1267370946}
+  - component: {fileID: 1267370945}
+  m_Layer: 0
+  m_Name: Tool Tutorial 3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &1267370945
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1267370944}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7ae9df3bb925804391492bd27840ae8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+  - spriteImg: {fileID: 0}
+    name: Robot Companion
+    sentences:
+    - Do you see it now?
+  - spriteImg: {fileID: 0}
+    name: Van
+    sentences:
+    - "Not really\u2026"
+  - spriteImg: {fileID: 0}
+    name: Robot Companion
+    sentences:
+    - 'The nails and screws on this side match the one on the other.
+
+'
+    - "Which means\u2026.\r\n"
+  - spriteImg: {fileID: 0}
+    name: Van
+    sentences:
+    - I have to match the placements?
+  - spriteImg: {fileID: 0}
+    name: Robot Companion
+    sentences:
+    - By the looks of it.
+  animator: {fileID: 1093678385}
+--- !u!4 &1267370946
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1267370944}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.5882473, y: 0.039431542, z: 1.5065197}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1289175404
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2479,6 +2642,10 @@ MonoBehaviour:
     name: Robot Companion
     sentences:
     - To see what's wrong.
+  - spriteImg: {fileID: 0}
+    name: Robot Companion
+    sentences:
+    - Umm alright?
   animator: {fileID: 1093678385}
 --- !u!4 &1492181525
 Transform:
@@ -2889,6 +3056,129 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 20.536, y: 270, z: 0}
+--- !u!1 &1814554091
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1814554093}
+  - component: {fileID: 1814554092}
+  m_Layer: 0
+  m_Name: Tool Tutorial 2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &1814554092
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1814554091}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7ae9df3bb925804391492bd27840ae8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+  - spriteImg: {fileID: 0}
+    name: Van
+    sentences:
+    - "I don\u2019t get it."
+  - spriteImg: {fileID: 0}
+    name: Robot Companion
+    sentences:
+    - Now, look at the other side.
+  animator: {fileID: 1093678385}
+--- !u!4 &1814554093
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1814554091}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.5882473, y: 0.039431542, z: 1.5065197}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1890734864
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 13fdd31b4cbd79149a047250917e6e7f, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 13fdd31b4cbd79149a047250917e6e7f, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 13fdd31b4cbd79149a047250917e6e7f, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 13fdd31b4cbd79149a047250917e6e7f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.332
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 13fdd31b4cbd79149a047250917e6e7f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.178
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 13fdd31b4cbd79149a047250917e6e7f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -2.221
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 13fdd31b4cbd79149a047250917e6e7f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.0000008046626
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 13fdd31b4cbd79149a047250917e6e7f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 13fdd31b4cbd79149a047250917e6e7f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 13fdd31b4cbd79149a047250917e6e7f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 13fdd31b4cbd79149a047250917e6e7f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 13fdd31b4cbd79149a047250917e6e7f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 13fdd31b4cbd79149a047250917e6e7f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 13fdd31b4cbd79149a047250917e6e7f, type: 3}
+      propertyPath: m_Name
+      value: Robot
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 13fdd31b4cbd79149a047250917e6e7f, type: 3}
 --- !u!4 &1909513071 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4193254275749184025, guid: f57cf41c75c2eb3408691d1a73813a12, type: 3}
@@ -3195,6 +3485,70 @@ RectTransform:
   m_AnchoredPosition: {x: -1.98, y: 1.04}
   m_SizeDelta: {x: 20, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &2079801265
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2079801267}
+  - component: {fileID: 2079801266}
+  m_Layer: 0
+  m_Name: Wiring Tutorial 2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &2079801266
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2079801265}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7ae9df3bb925804391492bd27840ae8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+  - spriteImg: {fileID: 0}
+    name: Van
+    sentences:
+    - "It lit up\u2026 red?"
+  - spriteImg: {fileID: 0}
+    name: Robot Companion
+    sentences:
+    - "It means it\u2019s in the wrong place."
+  - spriteImg: {fileID: 0}
+    name: Van
+    sentences:
+    - So, I need to put it back in the right place?
+    - but how will I know what is the right place?
+  - spriteImg: {fileID: 0}
+    name: Robot Companion
+    sentences:
+    - "How about looking at the positions of the other yellow wires?\r"
+    - That might give you a clue on where to put this one.
+  animator: {fileID: 1093678385}
+--- !u!4 &2079801267
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2079801265}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.5882473, y: 0.039431542, z: 1.5065197}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2112408064
 GameObject:
   m_ObjectHideFlags: 0
@@ -3523,9 +3877,14 @@ SceneRoots:
   - {fileID: 352433025}
   - {fileID: 999778916}
   - {fileID: 2112408066}
+  - {fileID: 1814554093}
+  - {fileID: 1267370946}
   - {fileID: 1590318816}
   - {fileID: 1492181525}
+  - {fileID: 2079801267}
   - {fileID: 1011834571}
+  - {fileID: 811491948}
   - {fileID: 8240139292248498421}
   - {fileID: 623374340}
   - {fileID: 2993872138232798793}
+  - {fileID: 1890734864}

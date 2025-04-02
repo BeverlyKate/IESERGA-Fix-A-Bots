@@ -7,19 +7,11 @@ public class DialogueTrigger : MonoBehaviour
     public Animator animator;
 
     private int nextCharacter = 0;
-    private bool hasTriggered = false; // Prevents repeated triggers
+    private bool isDone = false;
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (!hasTriggered && other.CompareTag("Player")) 
-        {
-            hasTriggered = true; // Mark as triggered
-            TriggerDialogue();
-        }
-    }
     public void TriggerDialogue()
     {
-        if(nextCharacter< dialogue.Length)
+        if(nextCharacter < dialogue.Length)
         {
             animator.SetBool("isTalking", true);
             FindAnyObjectByType<DialogueSystem>().StartDialogue(dialogue[nextCharacter]);
@@ -28,7 +20,12 @@ public class DialogueTrigger : MonoBehaviour
         else
         {
             animator.SetBool("isTalking", false);
-            //Destroy(gameObject);
+            isDone = true;
         }
+    }
+
+    public bool DialogueIsDone()
+    {
+        return isDone;
     }
 }
