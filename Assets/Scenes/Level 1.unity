@@ -452,6 +452,7 @@ MonoBehaviour:
   toolZoomBtn: {fileID: 659199679}
   toolRotateBtn: {fileID: 884924101}
   getWireGame: {fileID: 2064399910}
+  completeTask: {fileID: 303333809}
 --- !u!1 &274384328
 GameObject:
   m_ObjectHideFlags: 0
@@ -595,6 +596,20 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8675853543841059455, guid: 4281644abf4623f4c8919c0b714c1c24, type: 3}
   m_PrefabInstance: {fileID: 2139099940}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &303333809
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 303333805}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 316ae01e4016c9840bfd4ae810272fc0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  completeMission: {fileID: 754882107}
+  missionDone: 0
 --- !u!4 &334220183 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4674525860408456105, guid: 4281644abf4623f4c8919c0b714c1c24, type: 3}
@@ -3513,7 +3528,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5380908809717150879, guid: 4281644abf4623f4c8919c0b714c1c24, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 303333809}
   m_SourcePrefab: {fileID: 100100000, guid: 4281644abf4623f4c8919c0b714c1c24, type: 3}
 --- !u!1001 &2993872138232798793
 PrefabInstance:
