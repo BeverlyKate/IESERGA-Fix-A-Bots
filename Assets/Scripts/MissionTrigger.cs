@@ -53,6 +53,7 @@ public class MissionTrigger : MonoBehaviour
                     currentSpawn.GetComponentInChildren<WireStation>().mainCamera = station.GetComponent<Wiring>().camera;
                     currentSpawn.GetComponent<WiringTeleport>().teleportTo = targetTelepotPosition.gameObject;
                     currentSpawn.GetComponent<WiringTeleport>().wiringPos = teleportPos[1];
+                    station.GetComponent<Wiring>().wiringGame = currentSpawn;
                 }
                 else if (station.gameObject.name == "Paint")
                 {
@@ -92,11 +93,6 @@ public class MissionTrigger : MonoBehaviour
                         station.transform.GetComponent<PaintStation>().blackPanels = new GameObject[] { plateThree6, plateThree9, plateThree10, plateThree11 };
                     }
                 }
-                /*
-                {
-                    
-                }
-                */
             }
         }
     }

@@ -120,6 +120,11 @@ public class WorkshopInteraction : MonoBehaviour
             clickedObject.GetComponent<PaintStation>().enabled = true;
             clickedObject.GetComponent<BoxCollider>().enabled = false;
         }
+        else if (clickedObject.name == "Wiring")
+        {
+            clickedObject.GetComponent<Wiring>().enabled = true;
+            clickedObject.GetComponent<BoxCollider>().enabled = false;
+        }
 
     }
 
@@ -133,6 +138,11 @@ public class WorkshopInteraction : MonoBehaviour
         else if (clickedObject.name == "Paint")
         {
             clickedObject.GetComponent<PaintStation>().enabled = false;
+            clickedObject.GetComponent<BoxCollider>().enabled = true;
+        }
+        else if (clickedObject.name == "Wiring")
+        {
+            clickedObject.GetComponent<Wiring>().enabled = false;
             clickedObject.GetComponent<BoxCollider>().enabled = true;
         }
     }

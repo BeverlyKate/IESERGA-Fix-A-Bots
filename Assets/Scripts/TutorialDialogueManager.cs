@@ -25,6 +25,12 @@ public class TutorialDialogueManager : MonoBehaviour
     [SerializeField]
     private Button toolRotateBtn;
 
+    [SerializeField]
+    private Wiring getWireGame;
+
+    [SerializeField]
+    private AssemblyStation completeTask;
+
     private bool afterTutorial = false;
     private bool itemsDistributed = false;
     private bool tutorialDone = false;
@@ -34,6 +40,10 @@ public class TutorialDialogueManager : MonoBehaviour
     private bool paintTriggered = false;
     private bool wireTriggered = false;
     private bool wireTriggered2 = false;
+
+    private WireSlot wireSlotOfYellow;
+
+    private Transform wireGame;
 
     private int noOfRotations = 0;
 
@@ -92,6 +102,11 @@ public class TutorialDialogueManager : MonoBehaviour
             WireTutorial.SetActive(false);
         }
 
+        if (AfterEverything.GetComponent<DialogueTrigger>().DialogueIsDone())
+        {
+            AfterEverything.SetActive(true);
+        }
+
         if (afterTutorial)
         {
             if (Input.touchCount > 0)
@@ -118,6 +133,16 @@ public class TutorialDialogueManager : MonoBehaviour
                     }
                 }
             }
+
+            if(wireSlotOfYellow.isOccupied && !wireSlotOfYellow.isCorrect)
+            {
+                TriggerWire2Dialogue();
+            }
+
+            if (completeTask.missionDone)
+            {
+                FinalDialogue();
+            }
         }
     }
 
@@ -128,8 +153,17 @@ public class TutorialDialogueManager : MonoBehaviour
             afterTutorial = true;
             TaskTutorial.SetActive(true);
             itemsDistributed = true;
+            wireGame = getWireGame.wiringGame.transform.Find("Wireslot (3)");
+            wireSlotOfYellow = wireGame.GetComponent<WireSlot>();
             TaskTutorial.GetComponent<DialogueTrigger>().TriggerDialogue();
         }
+    }
+
+    private void FinalDialogue()
+    {
+        AfterEverything.SetActive(true);
+        tutorialDone = true;
+        AfterEverything.GetComponent<DialogueTrigger>().TriggerDialogue();
     }
 
     private void TriggerToolDialogue()
@@ -175,7 +209,7 @@ public class TutorialDialogueManager : MonoBehaviour
     private void TriggerTool3Dialogue()
     {
         noOfRotations++;
-        if (!toolTriggered3 && noOfRotations == 2)
+        if (!toolTriggered3 && noOfRotations >= 2)
         {
             ToolTutorial3.SetActive(true);
             toolTriggered3 = true;

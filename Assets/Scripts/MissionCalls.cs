@@ -14,6 +14,7 @@ public class MissionCalls : MonoBehaviour
     public GameObject missionPanel; 
     public TMP_Text missionText;
     public int numberOfMission;
+    public Material lightUpMaterial;
     private int currentTask;
 
     private bool missionActive = false;  

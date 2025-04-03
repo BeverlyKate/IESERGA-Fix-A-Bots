@@ -39,7 +39,7 @@ public class ToolStation : MonoBehaviour
     private RobotHead roboPart;
 
     public TextMeshPro statusText;
-    public Transform teleportPos;
+    public Transform toolPos;
     public GameObject teleportTo;
     public float offsetY = 1.0f;
 
@@ -265,9 +265,9 @@ public class ToolStation : MonoBehaviour
 
     private void MoveToTargetPosition()
     {
-        if (teleportPos != null)
+        if (toolPos != null)
         {
-            Vector3 targetPosition = new Vector3(teleportPos.position.x, teleportPos.position.y + offsetY, teleportPos.position.z);
+            Vector3 targetPosition = new Vector3(toolPos.position.x, toolPos.position.y + offsetY, toolPos.position.z);
             roboPart.gameObject.transform.position = targetPosition;
             roboPart.transform.parent = teleportTo.transform;
         }
