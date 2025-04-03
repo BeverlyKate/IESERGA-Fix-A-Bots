@@ -39,8 +39,8 @@ public class ToolStation : MonoBehaviour
     private RobotHead roboPart;
 
     public TextMeshPro statusText;
-    public GameObject targetObject;
-    public GameObject objectToTeleport;
+    public Transform teleportPos;
+    public GameObject teleportTo;
     public float offsetY = 1.0f;
 
     Ray GetRay()=> cam.ScreenPointToRay(Input.GetTouch(0).position);
@@ -165,6 +165,7 @@ public class ToolStation : MonoBehaviour
                 }
 
                 chosenBolt = (GameObject) Instantiate(prefabToInstantiate, rayHit.point, Quaternion.identity);
+                chosenBolt.transform.parent = roboPart.gameObject.transform;
                 draggingObj = true;
             }
 
@@ -264,10 +265,11 @@ public class ToolStation : MonoBehaviour
 
     private void MoveToTargetPosition()
     {
-        if (objectToTeleport != null && targetObject != null)
+        if (teleportPos != null)
         {
-            Vector3 targetPosition = new Vector3(targetObject.transform.position.x, targetObject.transform.position.y + offsetY, targetObject.transform.position.z);
-            objectToTeleport.transform.position = targetPosition;
+            Vector3 targetPosition = new Vector3(teleportPos.position.x, teleportPos.position.y + offsetY, teleportPos.position.z);
+            roboPart.gameObject.transform.position = targetPosition;
+            roboPart.transform.parent = teleportTo.transform;
         }
     }
 

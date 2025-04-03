@@ -780,6 +780,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3916682562039697495}
+  - component: {fileID: 9135279492199560159}
   m_Layer: 0
   m_Name: WireLevel3
   m_TagString: Untagged
@@ -800,6 +801,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 4835254109070206540}
   - {fileID: 6324027457888375472}
   - {fileID: 228185599068483482}
   - {fileID: 4870900085304261933}
@@ -807,6 +809,20 @@ Transform:
   - {fileID: 5912389797725649839}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &9135279492199560159
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1897647809291014386}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 482d80aa04857a94e9dec952b667d061, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wiringPos: {fileID: 0}
+  teleportTo: {fileID: 0}
 --- !u!1 &2000196098156070224
 GameObject:
   m_ObjectHideFlags: 0
@@ -1152,6 +1168,7 @@ MonoBehaviour:
   correctMaterial: {fileID: 0}
   incorrectMaterial: {fileID: 0}
   isOccupied: 0
+  isCorrect: 0
 --- !u!65 &668306210249563794
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2179,6 +2196,7 @@ MonoBehaviour:
   correctMaterial: {fileID: 0}
   incorrectMaterial: {fileID: 0}
   isOccupied: 0
+  isCorrect: 0
 --- !u!65 &7573633569562619177
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7041,6 +7059,7 @@ MonoBehaviour:
   correctMaterial: {fileID: 0}
   incorrectMaterial: {fileID: 0}
   isOccupied: 0
+  isCorrect: 0
 --- !u!65 &3909877876545274858
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7407,6 +7426,7 @@ MonoBehaviour:
   correctMaterial: {fileID: 0}
   incorrectMaterial: {fileID: 0}
   isOccupied: 0
+  isCorrect: 0
 --- !u!65 &5847546115596645683
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -11243,3 +11263,65 @@ MonoBehaviour:
   wireColor3: 0
   currentSlot: {fileID: 0}
   defaultZ: 0
+--- !u!1001 &6682433636489796522
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 3916682562039697495}
+    m_Modifications:
+    - target: {fileID: 2280651010407415270, guid: 42c1c2ce55966cd449d0a134193ee0b5, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.607
+      objectReference: {fileID: 0}
+    - target: {fileID: 2280651010407415270, guid: 42c1c2ce55966cd449d0a134193ee0b5, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.202
+      objectReference: {fileID: 0}
+    - target: {fileID: 2280651010407415270, guid: 42c1c2ce55966cd449d0a134193ee0b5, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.114
+      objectReference: {fileID: 0}
+    - target: {fileID: 2280651010407415270, guid: 42c1c2ce55966cd449d0a134193ee0b5, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2280651010407415270, guid: 42c1c2ce55966cd449d0a134193ee0b5, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2280651010407415270, guid: 42c1c2ce55966cd449d0a134193ee0b5, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2280651010407415270, guid: 42c1c2ce55966cd449d0a134193ee0b5, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2280651010407415270, guid: 42c1c2ce55966cd449d0a134193ee0b5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2280651010407415270, guid: 42c1c2ce55966cd449d0a134193ee0b5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2280651010407415270, guid: 42c1c2ce55966cd449d0a134193ee0b5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5033282054172319558, guid: 42c1c2ce55966cd449d0a134193ee0b5, type: 3}
+      propertyPath: m_Name
+      value: WiringBoard
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 42c1c2ce55966cd449d0a134193ee0b5, type: 3}
+--- !u!4 &4835254109070206540 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2280651010407415270, guid: 42c1c2ce55966cd449d0a134193ee0b5, type: 3}
+  m_PrefabInstance: {fileID: 6682433636489796522}
+  m_PrefabAsset: {fileID: 0}

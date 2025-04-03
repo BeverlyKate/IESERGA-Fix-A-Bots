@@ -10,6 +10,8 @@ public class MissionTrigger : MonoBehaviour
 
     public Transform targetTelepotPosition;
 
+    public Transform[] teleportPos;
+
     private GameObject[] stations;
 
     private Dictionary<string, string[]> panelAssignments = new Dictionary<string, string[]>
@@ -40,8 +42,8 @@ public class MissionTrigger : MonoBehaviour
                     locationToSpawn = station.transform.Find("Part Location").position;
                     currentSpawn = (GameObject) Instantiate(mission[currentTask].toolTask, station.transform);
                     currentSpawn.transform.position = locationToSpawn;
-                    station.GetComponent<ToolStation>().targetObject = targetTelepotPosition.gameObject;
-                    station.GetComponent<ToolStation>().objectToTeleport = currentSpawn;
+                    station.GetComponent<ToolStation>().teleportTo = targetTelepotPosition.gameObject;
+                    station.GetComponent<ToolStation>().toolPos = teleportPos[0];
                 }
                 else if (station.gameObject.name == "Wiring")
                 {
@@ -49,7 +51,8 @@ public class MissionTrigger : MonoBehaviour
                     currentSpawn = (GameObject)Instantiate(mission[currentTask].wireTask);
                     currentSpawn.transform.localPosition = locationToSpawn;
                     currentSpawn.GetComponentInChildren<WireStation>().mainCamera = station.GetComponent<Wiring>().camera;
-                    currentSpawn.GetComponentInChildren<WireStation>().targetObject = targetTelepotPosition;
+                    currentSpawn.GetComponent<WiringTeleport>().teleportTo = targetTelepotPosition.gameObject;
+                    currentSpawn.GetComponent<WiringTeleport>().wiringPos = teleportPos[1];
                 }
                 else if (station.gameObject.name == "Paint")
                 {
