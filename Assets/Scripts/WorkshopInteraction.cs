@@ -126,7 +126,6 @@ public class WorkshopInteraction : MonoBehaviour
             clickedObject.GetComponent<Wiring>().enabled = true;
             clickedObject.GetComponent<BoxCollider>().enabled = false;
         }
-
     }
 
     private void DeactivateScript()

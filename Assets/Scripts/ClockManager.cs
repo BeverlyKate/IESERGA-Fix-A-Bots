@@ -65,7 +65,7 @@ public class ClockManager : MonoBehaviour
         }
     }
 
-    private void EndWorkTime()
+    public void EndWorkTime()
     {
         EndofDay.SetActive (true);
         clockText.gameObject.SetActive(false);

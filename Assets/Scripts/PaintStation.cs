@@ -17,6 +17,7 @@ public class PaintStation : MonoBehaviour
     public TextMeshPro statusText;
     public GameObject teleportTo;
     public Transform paintPos;
+    public GameObject indicator;
     //public List <GameObject> blackPanels = new List<GameObject>();
 
     private Vector3[] initialPositions;
@@ -247,9 +248,11 @@ public class PaintStation : MonoBehaviour
                 cylinder.SetActive(false);  // Hide cylinders
             }
             */
+            indicator.gameObject.SetActive(false);
             teleportTo.GetComponent<AssemblyStation>().AddPart(cubeToRotate);
             cubeToRotate.transform.position = paintPos.position;
             cubeToRotate.transform.parent = teleportTo.transform;
+            cubeToRotate=null;
         }
 
         // If all required panels have the correct color, show level complete panel

@@ -11,6 +11,7 @@ public class MissionCalls : MonoBehaviour
     private Ray ray;
     private RaycastHit hit;
 
+    public ClockManager clockManager;
     public GameObject missionPanel; 
     public TMP_Text missionText;
     public int numberOfMission;
@@ -89,10 +90,11 @@ public class MissionCalls : MonoBehaviour
         missionCompleted = true;
         missionPanel.SetActive(false);
         Debug.Log("Mission Completed!");
+        currentTask++;
 
-        if (currentTask < numberOfMission)
+        if (currentTask == numberOfMission)
         {
-            currentTask++;
+            clockManager.EndWorkTime();
         }
     }
 }

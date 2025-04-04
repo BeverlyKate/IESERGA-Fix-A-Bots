@@ -79,6 +79,7 @@ public class MissionTrigger : MonoBehaviour
 
                     currentSpawn.GetComponent<WiringTeleport>().teleportTo = targetTelepotPosition.gameObject;
                     currentSpawn.GetComponent<WiringTeleport>().wiringPos = teleportPos[1];
+                    currentSpawn.GetComponent<WiringTeleport>().indicator = station.transform.Find("Indicator").gameObject;
                     station.GetComponent<Wiring>().wiringGame = currentSpawn;
                 }
                 else if (station.gameObject.name == "Paint")
@@ -119,6 +120,8 @@ public class MissionTrigger : MonoBehaviour
                         station.transform.GetComponent<PaintStation>().blackPanels = new GameObject[] { plateThree6, plateThree9, plateThree10, plateThree11 };
                     }
                 }
+
+                station.transform.Find("Indicator").gameObject.SetActive(true);
             }
         }
     }

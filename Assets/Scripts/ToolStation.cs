@@ -38,10 +38,12 @@ public class ToolStation : MonoBehaviour
 
     private RobotHead roboPart;
 
-    public TextMeshPro statusText;
+    //public TextMeshPro statusText;
     public Transform toolPos;
     public GameObject teleportTo;
     public float offsetY = 1.0f;
+    public GameObject indicator;
+    public GameObject toolInd;
 
     Ray GetRay()=> cam.ScreenPointToRay(Input.GetTouch(0).position);
 
@@ -55,10 +57,6 @@ public class ToolStation : MonoBehaviour
         roboPart = gameObject.GetComponentInChildren<RobotHead>();
 
         Debug.Log(roboPart.transform.gameObject.name);
-        if (statusText != null)
-        {
-            statusText.text = "Not done";
-        }
     }
 
     // Update is called once per frame
@@ -107,6 +105,7 @@ public class ToolStation : MonoBehaviour
                             
                         }
                     }
+                    toolInd.SetActive(true);
                 }
             }
             else
@@ -132,10 +131,6 @@ public class ToolStation : MonoBehaviour
             if (roboPart.checkIncrement())
             {
                 roboPart.triggerDone();
-                if (statusText != null)
-                {
-                    statusText.text = "Done!";
-                }
                 MoveToTargetPosition();
             }
             
@@ -252,6 +247,7 @@ public class ToolStation : MonoBehaviour
                     onBolt = true;
                     boltToEdit = nail.gameObject;
                     boltPos = roboPart.findFastenerPos(boltToEdit);
+                    toolInd.SetActive(false);
                 }
                 else if (rayHit.transform.gameObject.TryGetComponent(out Screw screw) && chosenTool.transform.name == "Screw Driver")
                 {
@@ -263,6 +259,7 @@ public class ToolStation : MonoBehaviour
                     onBolt = true;
                     boltToEdit = screw.gameObject;
                     boltPos = roboPart.findFastenerPos(boltToEdit);
+                    toolInd.SetActive(false);
                 }
             }
         }
@@ -277,6 +274,7 @@ public class ToolStation : MonoBehaviour
             roboPart.gameObject.transform.position = targetPosition;
             roboPart.transform.parent = teleportTo.transform;
             roboPart = null;
+            indicator.SetActive(false);
         }
     }
 

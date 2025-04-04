@@ -52,6 +52,7 @@ public class ToolCameraManager : MonoBehaviour
 
     void Update()
     {
+
     }
 
     public void Zoom()
