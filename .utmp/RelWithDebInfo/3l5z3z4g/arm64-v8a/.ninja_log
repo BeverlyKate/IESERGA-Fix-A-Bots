@@ -1,0 +1,10 @@
+# ninja log v5
+20	921	7655134162033750	GameActivity/CMakeFiles/game.dir/UGAInputKeyEvent.cpp.o	152dc732b1d9cbec
+4	924	7655134162033750	GameActivity/CMakeFiles/game.dir/UGAConfiguration.cpp.o	d92c19b60c4da4ad
+11	928	7655134162033750	GameActivity/CMakeFiles/game.dir/UGAEntry.cpp.o	6703c206d7db7f4d
+25	929	7655134162043762	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	485bb4b129c68600
+8	929	7655134162053841	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	769497de8cbed5ea
+30	930	7655134162043762	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	32003ffa30e9a895
+16	1044	7655134163299368	GameActivity/CMakeFiles/game.dir/UGAInput.cpp.o	180a185e1baec418
+1	1140	7655134164263269	GameActivity/CMakeFiles/game.dir/UGAApplication.cpp.o	5d74a8171cba7908
+1140	1234	7655134165238765	D:/school/IESERGA/IESERGA-Fix-A-Bot-Git/IESERGA-Fix-A-Bot/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/3l5z3z4g/obj/arm64-v8a/libgame.so	81c236cde749a8f3

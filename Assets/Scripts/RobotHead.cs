@@ -1,5 +1,4 @@
 using System.Numerics;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class RobotHead : MonoBehaviour
@@ -62,11 +61,11 @@ public class RobotHead : MonoBehaviour
 
     public bool checkIncrement()
     {
-       if(checkCorrect == missingLocations.Length)
-       {
+        if (checkCorrect == missingLocations.Length)
+        {
             return true;
-       }
-       return false;
+        }
+        return false;
     }
 
     public float checkCorrectPosition(int placement)

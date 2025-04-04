@@ -16,7 +16,7 @@ public class WiringGame3 : MonoBehaviour
     public GameObject targetObject;
     public float offsetY = 1.0f;
     private bool isDone = false;
-    //public TextMeshPro statusText;
+    // public TextMeshPro statusText;
     public Camera raycastCamera;
 
     private string leftWire1Color = "none";
@@ -46,9 +46,10 @@ public class WiringGame3 : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (IsInputPressed())
         {
-            Ray ray = raycastCamera.ScreenPointToRay(Input.mousePosition);
+            Vector3 inputPosition = GetInputPosition();
+            Ray ray = raycastCamera.ScreenPointToRay(inputPosition);
             RaycastHit hit;
 
             if (Physics.Raycast(ray, out hit))
@@ -102,10 +103,6 @@ public class WiringGame3 : MonoBehaviour
             Correct4.GetComponent<MeshRenderer>().enabled = true;
 
             GetComponent<WiringTeleport>().TriggerTeleport();
-            //MoveToTargetPosition(Correct1);
-            //MoveToTargetPosition(Correct2);
-            //MoveToTargetPosition(Correct3);
-            //MoveToTargetPosition(Correct4);
 
             /*
             if (statusText != null)
@@ -128,6 +125,20 @@ public class WiringGame3 : MonoBehaviour
             }
             */
         }
+    }
+
+    // Input handling for touch and mouse
+    Vector3 GetInputPosition()
+    {
+        if (Input.touchCount > 0)
+            return Input.GetTouch(0).position;
+        else
+            return Input.mousePosition;
+    }
+
+    bool IsInputPressed()
+    {
+        return Input.GetMouseButtonDown(0) || (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began);
     }
 
     /*

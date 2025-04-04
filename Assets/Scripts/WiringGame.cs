@@ -7,7 +7,6 @@ public class WiringGame : MonoBehaviour
     public GameObject Correct1;
     public GameObject Correct2;
     public GameObject targetObject;
-    //public GameObject DisplayText;
 
     public GameObject Red;
     public GameObject Blue;
@@ -29,7 +28,6 @@ public class WiringGame : MonoBehaviour
     {
         Correct1.GetComponent<MeshRenderer>().enabled = false;
         Correct2.GetComponent<MeshRenderer>().enabled = false;
-        //DisplayText.SetActive(false);
 
         if (raycastCamera == null)
         {
@@ -39,9 +37,11 @@ public class WiringGame : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        Vector3 inputPos = GetInputPosition();
+
+        if (IsInputPressed())
         {
-            Ray ray = raycastCamera.ScreenPointToRay(Input.mousePosition);
+            Ray ray = raycastCamera.ScreenPointToRay(inputPos);
             RaycastHit hit;
 
             if (Physics.Raycast(ray, out hit))
@@ -69,14 +69,6 @@ public class WiringGame : MonoBehaviour
                 }
             }
         }
-
-        /*
-            if (patternMatched)
-            {
-                MoveObjectToTarget(Correct1);
-                MoveObjectToTarget(Correct2);
-            }
-        */
     }
 
     void SetLeftWireColor(string color)
@@ -120,7 +112,6 @@ public class WiringGame : MonoBehaviour
         {
             Correct1.GetComponent<MeshRenderer>().enabled = true;
             Correct2.GetComponent<MeshRenderer>().enabled = true;
-            //DisplayText.SetActive(true);
             patternMatched = true;
             GetComponent<WiringTeleport>().TriggerTeleport();
         }
@@ -128,21 +119,20 @@ public class WiringGame : MonoBehaviour
         {
             Correct1.GetComponent<MeshRenderer>().enabled = false;
             Correct2.GetComponent<MeshRenderer>().enabled = false;
-            //DisplayText.SetActive(false);
             patternMatched = false;
-
         }
     }
 
-    /*
-     void MoveObjectToTarget(GameObject correctWire)
+    private Vector3 GetInputPosition()
     {
-        if (targetObject != null)
-        {
-            Vector3 targetPosition = new Vector3(targetObject.transform.position.x, targetObject.transform.position.y + offsetY, targetObject.transform.position.z);
-            correctWire.transform.position = targetPosition;
-        }
+        if (Input.touchCount > 0)
+            return Input.GetTouch(0).position;
+        else
+            return Input.mousePosition;
     }
-    */
-}
 
+    private bool IsInputPressed()
+    {
+        return Input.GetMouseButtonDown(0) || (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began);
+    }
+}
