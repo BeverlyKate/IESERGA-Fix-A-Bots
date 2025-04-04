@@ -150,6 +150,7 @@ public class WireStation3 : MonoBehaviour
             wires[3].wireColor3 == WireColor3.Red)
         {
             correctIndicator.SetActive(true); // Show correct order indicator
+            GetComponentInParent<WiringTeleport>().TriggerTeleport();
         }
         else
         {

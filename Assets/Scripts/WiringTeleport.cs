@@ -6,40 +6,10 @@ public class WiringTeleport : MonoBehaviour
 
     public GameObject teleportTo;
 
-    void Update()
+    public void TriggerTeleport()
     {
-        if(GetComponentInChildren<WireStation>() != null)
-        {
-            if (GetComponentInChildren<WireStation>().GameIsDone())
-            {
-                transform.parent = teleportTo.transform;
-                transform.position = wiringPos.position;
-            }
-        }
-        else if(GetComponent<WiringGame>() != null)
-        {
-            if (GetComponentInChildren<WiringGame>().GameIsDone())
-            {
-                transform.parent = teleportTo.transform;
-                transform.position = wiringPos.position;
-            }
-        }
-        else if (GetComponent<WiringGame2>() != null)
-        {
-            if (GetComponentInChildren<WiringGame2>().GameIsDone())
-            {
-                transform.parent = teleportTo.transform;
-                transform.position = wiringPos.position;
-            }
-        }
-        else if (GetComponent<WiringGame3>() != null)
-        {
-            if (GetComponentInChildren<WiringGame3>().GameIsDone())
-            {
-                transform.parent = teleportTo.transform;
-                transform.position = wiringPos.position;
-            }
-        }
-
+        transform.parent = teleportTo.transform;
+        transform.position = wiringPos.position;
+        teleportTo.GetComponent<AssemblyStation>().AddPart(gameObject);
     }
 }

@@ -15,26 +15,33 @@ public class AssemblyStation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (partCount == 3)
+        if (partCount >= 3)
         {
-            completeMission.CompleteMission();
-
-            foreach(GameObject repairedPart in repairedParts)
-            {
-                Destroy(transform.Find(repairedPart.name));
-            }
-
-            Array.Clear(repairedParts, 0, repairedParts.Length);
-
-            partCount = 0;
-
-            missionDone = true;
+            taskDone();
         }
     }
 
     public void AddPart(GameObject addedPart)
     {
+        Debug.Log("Adding Part");
         repairedParts[partCount] = addedPart;
         partCount++;
+        Debug.Log("Current Count" + partCount);
+    }
+
+    private void taskDone()
+    {
+        completeMission.CompleteMission();
+
+        foreach (GameObject repairedPart in repairedParts)
+        {
+            Destroy(transform.Find(repairedPart.name), 5f);
+        }
+
+        Array.Clear(repairedParts, 0, repairedParts.Length);
+
+        partCount = 0;
+
+        missionDone = true;
     }
 }

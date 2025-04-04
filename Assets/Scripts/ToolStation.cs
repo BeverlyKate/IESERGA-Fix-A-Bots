@@ -140,6 +140,11 @@ public class ToolStation : MonoBehaviour
             }
             
         }
+
+        if(roboPart == null)
+        {
+            Debug.Log("Missing :(");
+        }
     }
 
     private void HandleClick(Vector3 position)
@@ -271,6 +276,7 @@ public class ToolStation : MonoBehaviour
             Vector3 targetPosition = new Vector3(toolPos.position.x, toolPos.position.y + offsetY, toolPos.position.z);
             roboPart.gameObject.transform.position = targetPosition;
             roboPart.transform.parent = teleportTo.transform;
+            roboPart = null;
         }
     }
 

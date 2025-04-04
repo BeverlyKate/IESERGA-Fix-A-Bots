@@ -122,7 +122,7 @@ public class WiringGame : MonoBehaviour
             Correct2.GetComponent<MeshRenderer>().enabled = true;
             //DisplayText.SetActive(true);
             patternMatched = true;
-            isDone = true;
+            GetComponent<WiringTeleport>().TriggerTeleport();
         }
         else
         {
@@ -144,10 +144,5 @@ public class WiringGame : MonoBehaviour
         }
     }
     */
-
-    public bool GameIsDone()
-    {
-        return isDone; 
-    }
 }
 

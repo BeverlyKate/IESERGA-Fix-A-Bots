@@ -55,6 +55,11 @@ public class MissionTrigger : MonoBehaviour
                         ws.GetComponentInChildren<WireStation>().mainCamera = station.GetComponent<Wiring>().camera;
                         ws.GetComponentInChildren<WireStation>().targetObject = targetTelepotPosition;
                     }
+                    else if (currentSpawn.TryGetComponent(out WireStation3 ws3))
+                    {
+                        ws3.GetComponentInChildren<WireStation3>().mainCamera = station.GetComponent<Wiring>().camera;
+                        //ws3.GetComponentInChildren<WireStation3>().targetObject = targetTelepotPosition;
+                    }
 
                     if(currentSpawn.TryGetComponent(out WiringGame wg))
                     {

@@ -108,7 +108,7 @@ public class WiringGame2 : MonoBehaviour
             //MoveToTargetPosition(Correct2);
             //MoveToTargetPosition(Correct3);
 
-            isDone = true;
+            GetComponent<WiringTeleport>().TriggerTeleport();
 
             /*
             if (statusText != null)
@@ -142,9 +142,4 @@ public class WiringGame2 : MonoBehaviour
         }
     }
     */
-
-    public bool GameIsDone()
-    {
-        return isDone;
-    }
 }

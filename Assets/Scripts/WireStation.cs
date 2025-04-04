@@ -155,10 +155,9 @@ public class WireStation : MonoBehaviour
     if (allCorrect)
     {
         correctIndicator.SetActive(true);
-        isDone = true;
-        targetObject.GetComponent<AssemblyStation>().AddPart(gameObject);
-        //TeleportWiresToTarget(); // ✅ Move wires when all slots are correct
-    }
+        GetComponentInParent<WiringTeleport>().TriggerTeleport();
+            //TeleportWiresToTarget(); // ✅ Move wires when all slots are correct
+        }
     else
     {
         correctIndicator.SetActive(false);
@@ -177,15 +176,6 @@ public class WireStation : MonoBehaviour
                 wireSlot.ResetSlot();
             }
         }
-    }
-
-    public bool GameIsDone()
-    {
-        if (isDone)
-        {
-            return true;
-        }
-        return false;
     }
 
     /*

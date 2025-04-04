@@ -100,6 +100,8 @@ public class WiringGame3 : MonoBehaviour
             Correct2.GetComponent<MeshRenderer>().enabled = true;
             Correct3.GetComponent<MeshRenderer>().enabled = true;
             Correct4.GetComponent<MeshRenderer>().enabled = true;
+
+            GetComponent<WiringTeleport>().TriggerTeleport();
             //MoveToTargetPosition(Correct1);
             //MoveToTargetPosition(Correct2);
             //MoveToTargetPosition(Correct3);
@@ -138,9 +140,4 @@ public class WiringGame3 : MonoBehaviour
         }
     }
     */
-
-    public bool GameIsDone()
-    {
-        return isDone;
-    }
 }
