@@ -1276,7 +1276,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 606d929a3a3e7254d8d202ef93e3b87e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level2Dialogue: {fileID: 0}
+  level2Dialogue: {fileID: 765460754}
 --- !u!114 &754882107 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2370594579930396010, guid: d9d3df8aa3fba204999ad12161393d60, type: 3}
@@ -2703,6 +2703,10 @@ PrefabInstance:
       propertyPath: missionText
       value: 
       objectReference: {fileID: 617893932}
+    - target: {fileID: 2370594579930396010, guid: d9d3df8aa3fba204999ad12161393d60, type: 3}
+      propertyPath: clockManager
+      value: 
+      objectReference: {fileID: 1191759483}
     - target: {fileID: 2370594579930396010, guid: d9d3df8aa3fba204999ad12161393d60, type: 3}
       propertyPath: missionPanel
       value: 
