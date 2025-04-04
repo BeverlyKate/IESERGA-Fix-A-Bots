@@ -36,7 +36,7 @@ public class ToolStation : MonoBehaviour
 
     private int boltPos;
 
-    private RobotHead roboPart;
+    public GameObject roboPart;
 
     //public TextMeshPro statusText;
     public Transform toolPos;
@@ -53,8 +53,6 @@ public class ToolStation : MonoBehaviour
         //missingLocations = GameObject.FindGameObjectsWithTag("Unknown");
 
         cam = gameObject.GetComponentInChildren<Camera>();
-
-        roboPart = gameObject.GetComponentInChildren<RobotHead>();
 
         Debug.Log(roboPart.transform.gameObject.name);
     }
@@ -82,10 +80,10 @@ public class ToolStation : MonoBehaviour
                         if (rayHit.transform.gameObject.CompareTag("Unknown"))
                         {
                             //call function from robothead
-                            placement = roboPart.locationPlacement(rayHit.transform.gameObject);
+                            placement = roboPart.GetComponent<RobotHead>().locationPlacement(rayHit.transform.gameObject);
                             Debug.Log(placement);
                             Debug.Log(draggingObj);
-                            if (roboPart.checkLocation(placement, choseNum))
+                            if (roboPart.GetComponent<RobotHead>().checkLocation(placement, choseNum))
                             {
                                 if (choseNum == 0)
                                 {
@@ -98,11 +96,11 @@ public class ToolStation : MonoBehaviour
                                 {
                                     chosenBolt.transform.position = rayHit.transform.gameObject.GetComponentInChildren<Transform>().position;
                                 }
-                                roboPart.setObjectPlacement(chosenBolt, placement);
+                                roboPart.GetComponent<RobotHead>().setObjectPlacement(chosenBolt, placement);
                                 chosenBolt = null;
                                 draggingObj = false;
                             }
-                            
+
                         }
                     }
                     toolInd.SetActive(true);
@@ -126,14 +124,15 @@ public class ToolStation : MonoBehaviour
                     }
                 }
             }
-            
+
             // triggers DONE sign
-            if (roboPart.checkIncrement())
-            {
-                roboPart.triggerDone();
-                MoveToTargetPosition();
+            if (roboPart != null) {
+                if (roboPart.GetComponent<RobotHead>().checkIncrement())
+                {
+                    roboPart.GetComponent<RobotHead>().triggerDone();
+                    MoveToTargetPosition();
+                }
             }
-            
         }
 
         if(roboPart == null)
@@ -201,7 +200,7 @@ public class ToolStation : MonoBehaviour
 
                 if (onBolt)
                 {
-                    if (hitCounter < roboPart.checkCorrectPosition(boltPos))
+                    if (hitCounter < roboPart.GetComponent<RobotHead>().checkCorrectPosition(boltPos))
                     {
                         if (boltToEdit.TryGetComponent(out Nail nail))
                         {
@@ -224,7 +223,7 @@ public class ToolStation : MonoBehaviour
                     }
                     else
                     {
-                        roboPart.incrementCorrect();
+                        roboPart.GetComponent<RobotHead>().incrementCorrect();
                         hitCounter = 0f;
                         chosenTool.transform.position = chosenToolPos;
                         chosenTool.transform.eulerAngles = chosenToolRot;
@@ -246,7 +245,7 @@ public class ToolStation : MonoBehaviour
                     chosenTool.transform.eulerAngles = new Vector3(chosenTool.transform.eulerAngles.x - 90f, chosenTool.transform.eulerAngles.y + 90f, chosenTool.transform.eulerAngles.z);
                     onBolt = true;
                     boltToEdit = nail.gameObject;
-                    boltPos = roboPart.findFastenerPos(boltToEdit);
+                    boltPos = roboPart.GetComponent<RobotHead>().findFastenerPos(boltToEdit);
                     toolInd.SetActive(false);
                 }
                 else if (rayHit.transform.gameObject.TryGetComponent(out Screw screw) && chosenTool.transform.name == "Screw Driver")
@@ -258,7 +257,7 @@ public class ToolStation : MonoBehaviour
                     chosenTool.transform.eulerAngles = new Vector3(chosenTool.transform.eulerAngles.x, chosenTool.transform.eulerAngles.y, chosenTool.transform.eulerAngles.z + 90f);
                     onBolt = true;
                     boltToEdit = screw.gameObject;
-                    boltPos = roboPart.findFastenerPos(boltToEdit);
+                    boltPos = roboPart.GetComponent<RobotHead>().findFastenerPos(boltToEdit);
                     toolInd.SetActive(false);
                 }
             }

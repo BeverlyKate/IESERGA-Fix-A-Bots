@@ -36,45 +36,54 @@ public class MissionTrigger : MonoBehaviour
         {
             if (station != null)
             {
-                if(station.gameObject.name == "Tool")
+                if (station.gameObject.name == "Tool")
                 {
                     Debug.Log("Distributing Heads");
                     locationToSpawn = station.transform.Find("Part Location").position;
-                    currentSpawn = (GameObject) Instantiate(mission[currentTask].toolTask, station.transform);
+                    currentSpawn = (GameObject)Instantiate(mission[currentTask].toolTask, station.transform);
                     currentSpawn.transform.position = locationToSpawn;
+                    station.GetComponent<ToolStation>().roboPart = currentSpawn;
                     station.GetComponent<ToolStation>().teleportTo = targetTelepotPosition.gameObject;
                     station.GetComponent<ToolStation>().toolPos = teleportPos[0];
                 }
                 else if (station.gameObject.name == "Wiring")
                 {
-                    locationToSpawn = station.transform.Find("Location").position;
                     currentSpawn = (GameObject)Instantiate(mission[currentTask].wireTask);
-                    currentSpawn.transform.localPosition = locationToSpawn;
-                    if(currentSpawn.TryGetComponent(out WireStation ws))
+                    if (currentSpawn.GetComponentInChildren<WireStation>() != null || currentSpawn.GetComponentInChildren<WireStation3>() != null)
                     {
-                        ws.GetComponentInChildren<WireStation>().mainCamera = station.GetComponent<Wiring>().camera;
-                        ws.GetComponentInChildren<WireStation>().targetObject = targetTelepotPosition;
+                        Debug.Log("Original Wire Game!");
+                        locationToSpawn = station.transform.Find("Location").position;
                     }
-                    else if (currentSpawn.TryGetComponent(out WireStation3 ws3))
+                    else
                     {
-                        ws3.GetComponentInChildren<WireStation3>().mainCamera = station.GetComponent<Wiring>().camera;
+                        locationToSpawn = station.transform.Find("Location1").position;
+                    }
+                    currentSpawn.transform.localPosition = locationToSpawn;
+                    if(currentSpawn.GetComponentInChildren<WireStation>() != null)
+                    {
+                        currentSpawn.GetComponentInChildren<WireStation>().mainCamera = station.GetComponent<Wiring>().camera;
+                        currentSpawn.GetComponentInChildren<WireStation>().targetObject = targetTelepotPosition;
+                    }
+                    else if (currentSpawn.GetComponentInChildren<WireStation3>() != null)
+                    {
+                        currentSpawn.GetComponentInChildren<WireStation3>().mainCamera = station.GetComponent<Wiring>().camera;
                         //ws3.GetComponentInChildren<WireStation3>().targetObject = targetTelepotPosition;
                     }
 
-                    if(currentSpawn.TryGetComponent(out WiringGame wg))
+                    if(currentSpawn.GetComponent<WiringGame>() != null)
                     {
-                        wg.GetComponentInChildren<WiringGame>().raycastCamera = station.GetComponent<Wiring>().camera;
-                        wg.GetComponentInChildren<WiringGame>().targetObject = targetTelepotPosition.gameObject;
+                        currentSpawn.GetComponent<WiringGame>().raycastCamera = station.GetComponent<Wiring>().camera;
+                        currentSpawn.GetComponent<WiringGame>().targetObject = targetTelepotPosition.gameObject;
                     }
-                    else if (currentSpawn.TryGetComponent(out WiringGame2 wg2))
+                    else if (currentSpawn.GetComponent<WiringGame2>() != null)
                     {
-                        wg2.GetComponentInChildren<WiringGame2>().raycastCamera = station.GetComponent<Wiring>().camera;
-                        wg2.GetComponentInChildren<WiringGame2>().targetObject = targetTelepotPosition.gameObject;
+                        currentSpawn.GetComponent<WiringGame2>().raycastCamera = station.GetComponent<Wiring>().camera;
+                        currentSpawn.GetComponent<WiringGame2>().targetObject = targetTelepotPosition.gameObject;
                     }
-                    else if (currentSpawn.TryGetComponent(out WiringGame3 wg3))
+                    else if (currentSpawn.GetComponent<WiringGame3>() != null)
                     {
-                        wg3.GetComponentInChildren<WiringGame3>().raycastCamera = station.GetComponent<Wiring>().camera;
-                        wg3.GetComponentInChildren<WiringGame3>().targetObject = targetTelepotPosition.gameObject;
+                        currentSpawn.GetComponent<WiringGame3>().raycastCamera = station.GetComponent<Wiring>().camera;
+                        currentSpawn.GetComponent<WiringGame3>().targetObject = targetTelepotPosition.gameObject;
                     }
 
                     currentSpawn.GetComponent<WiringTeleport>().teleportTo = targetTelepotPosition.gameObject;

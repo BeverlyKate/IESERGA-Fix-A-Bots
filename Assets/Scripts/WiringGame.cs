@@ -39,37 +39,39 @@ public class WiringGame : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if(Input.touchCount > 0)
         {
-            Ray ray = raycastCamera.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
-
-            if (Physics.Raycast(ray, out hit))
+            if (Input.GetTouch(0).phase == TouchPhase.Began)
             {
-                switch (hit.collider.gameObject.name)
+                Ray ray = raycastCamera.ScreenPointToRay(Input.GetTouch(0).position);
+                RaycastHit hit;
+
+                if (Physics.Raycast(ray, out hit))
                 {
-                    case "Red":
-                        SetLeftWireColor("red");
-                        break;
-                    case "Blue":
-                        SetLeftWireColor("blue");
-                        break;
-                    case "Yellow":
-                        SetLeftWireColor("yellow");
-                        break;
-                    case "Red1":
-                        SetRightWireColor("red");
-                        break;
-                    case "Blue1":
-                        SetRightWireColor("blue");
-                        break;
-                    case "Yellow1":
-                        SetRightWireColor("yellow");
-                        break;
+                    switch (hit.collider.gameObject.name)
+                    {
+                        case "Red":
+                            SetLeftWireColor("red");
+                            break;
+                        case "Blue":
+                            SetLeftWireColor("blue");
+                            break;
+                        case "Yellow":
+                            SetLeftWireColor("yellow");
+                            break;
+                        case "Red1":
+                            SetRightWireColor("red");
+                            break;
+                        case "Blue1":
+                            SetRightWireColor("blue");
+                            break;
+                        case "Yellow1":
+                            SetRightWireColor("yellow");
+                            break;
+                    }
                 }
             }
         }
-
         /*
             if (patternMatched)
             {

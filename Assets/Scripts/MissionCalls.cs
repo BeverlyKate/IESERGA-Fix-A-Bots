@@ -53,14 +53,7 @@ public class MissionCalls : MonoBehaviour
         {
             if (hit.transform.CompareTag("TV")) // Make sure the TV object has the tag "TV"
             {
-                if (!missionCompleted) // Only show mission if not completed
-                {
-                    ShowMission();
-                }
-                else
-                {
-                    Debug.Log("Mission already completed!");
-                }
+                ShowMission();
             }
         }
     }
@@ -97,12 +90,13 @@ public class MissionCalls : MonoBehaviour
         Debug.Log("Mission Completed!");
         currentTask++;
 
-        if (currentTask == numberOfMission)
+        if (currentTask >= numberOfMission)
         {
             clockManager.EndWorkTime();
         }
         else
         {
+            currentOngoing = false;
             tvScreen.GetComponent<Renderer>().material = lightUpMaterial;
         }
     }

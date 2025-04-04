@@ -36,7 +36,7 @@ public class Level3DialogueManager : MonoBehaviour
                 {
                     if (rayHit.transform.gameObject.CompareTag("Station"))
                     {
-                        if (rayHit.transform.gameObject.name == "Tool")
+                        if (rayHit.transform.gameObject.name == "Wiring")
                         {
                             TriggerNewWireTutorial();
                         }
