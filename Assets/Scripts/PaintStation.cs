@@ -247,9 +247,9 @@ public class PaintStation : MonoBehaviour
                 cylinder.SetActive(false);  // Hide cylinders
             }
             */
+            teleportTo.GetComponent<AssemblyStation>().AddPart(cubeToRotate);
             cubeToRotate.transform.position = paintPos.position;
             cubeToRotate.transform.parent = teleportTo.transform;
-
         }
 
         // If all required panels have the correct color, show level complete panel

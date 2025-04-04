@@ -7,7 +7,7 @@ public class WiringGame : MonoBehaviour
     public GameObject Correct1;
     public GameObject Correct2;
     public GameObject targetObject;
-    public GameObject DisplayText;
+    //public GameObject DisplayText;
 
     public GameObject Red;
     public GameObject Blue;
@@ -19,6 +19,7 @@ public class WiringGame : MonoBehaviour
 
     public Camera raycastCamera;
     public float offsetY = 5f;
+    private bool isDone = false;
 
     private string leftWireColor = "none";
     private string rightWireColor = "none";
@@ -28,7 +29,7 @@ public class WiringGame : MonoBehaviour
     {
         Correct1.GetComponent<MeshRenderer>().enabled = false;
         Correct2.GetComponent<MeshRenderer>().enabled = false;
-        DisplayText.SetActive(false);
+        //DisplayText.SetActive(false);
 
         if (raycastCamera == null)
         {
@@ -69,11 +70,13 @@ public class WiringGame : MonoBehaviour
             }
         }
 
-        if (patternMatched)
-        {
-            MoveObjectToTarget(Correct1);
-            MoveObjectToTarget(Correct2);
-        }
+        /*
+            if (patternMatched)
+            {
+                MoveObjectToTarget(Correct1);
+                MoveObjectToTarget(Correct2);
+            }
+        */
     }
 
     void SetLeftWireColor(string color)
@@ -117,18 +120,21 @@ public class WiringGame : MonoBehaviour
         {
             Correct1.GetComponent<MeshRenderer>().enabled = true;
             Correct2.GetComponent<MeshRenderer>().enabled = true;
-            DisplayText.SetActive(true);
+            //DisplayText.SetActive(true);
             patternMatched = true;
+            isDone = true;
         }
         else
         {
             Correct1.GetComponent<MeshRenderer>().enabled = false;
             Correct2.GetComponent<MeshRenderer>().enabled = false;
-            DisplayText.SetActive(false);
+            //DisplayText.SetActive(false);
             patternMatched = false;
+
         }
     }
 
+    /*
      void MoveObjectToTarget(GameObject correctWire)
     {
         if (targetObject != null)
@@ -136,6 +142,12 @@ public class WiringGame : MonoBehaviour
             Vector3 targetPosition = new Vector3(targetObject.transform.position.x, targetObject.transform.position.y + offsetY, targetObject.transform.position.z);
             correctWire.transform.position = targetPosition;
         }
+    }
+    */
+
+    public bool GameIsDone()
+    {
+        return isDone; 
     }
 }
 

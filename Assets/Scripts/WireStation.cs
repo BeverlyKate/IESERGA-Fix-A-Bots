@@ -14,7 +14,7 @@ public class WireStation : MonoBehaviour
 
     public Camera mainCamera; // Assign in Inspector!
 
-    //public Transform targetObject; // Assign in Inspector
+    public Transform targetObject; // Assign in Inspector
     public float yOffset = 1.0f; // Adjust in Inspector
 
     private bool isDone = false;
@@ -156,6 +156,7 @@ public class WireStation : MonoBehaviour
     {
         correctIndicator.SetActive(true);
         isDone = true;
+        targetObject.GetComponent<AssemblyStation>().AddPart(gameObject);
         //TeleportWiresToTarget(); // ✅ Move wires when all slots are correct
     }
     else

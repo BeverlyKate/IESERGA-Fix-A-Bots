@@ -50,7 +50,28 @@ public class MissionTrigger : MonoBehaviour
                     locationToSpawn = station.transform.Find("Location").position;
                     currentSpawn = (GameObject)Instantiate(mission[currentTask].wireTask);
                     currentSpawn.transform.localPosition = locationToSpawn;
-                    currentSpawn.GetComponentInChildren<WireStation>().mainCamera = station.GetComponent<Wiring>().camera;
+                    if(currentSpawn.TryGetComponent(out WireStation ws))
+                    {
+                        ws.GetComponentInChildren<WireStation>().mainCamera = station.GetComponent<Wiring>().camera;
+                        ws.GetComponentInChildren<WireStation>().targetObject = targetTelepotPosition;
+                    }
+
+                    if(currentSpawn.TryGetComponent(out WiringGame wg))
+                    {
+                        wg.GetComponentInChildren<WiringGame>().raycastCamera = station.GetComponent<Wiring>().camera;
+                        wg.GetComponentInChildren<WiringGame>().targetObject = targetTelepotPosition.gameObject;
+                    }
+                    else if (currentSpawn.TryGetComponent(out WiringGame2 wg2))
+                    {
+                        wg2.GetComponentInChildren<WiringGame2>().raycastCamera = station.GetComponent<Wiring>().camera;
+                        wg2.GetComponentInChildren<WiringGame2>().targetObject = targetTelepotPosition.gameObject;
+                    }
+                    else if (currentSpawn.TryGetComponent(out WiringGame3 wg3))
+                    {
+                        wg3.GetComponentInChildren<WiringGame3>().raycastCamera = station.GetComponent<Wiring>().camera;
+                        wg3.GetComponentInChildren<WiringGame3>().targetObject = targetTelepotPosition.gameObject;
+                    }
+
                     currentSpawn.GetComponent<WiringTeleport>().teleportTo = targetTelepotPosition.gameObject;
                     currentSpawn.GetComponent<WiringTeleport>().wiringPos = teleportPos[1];
                     station.GetComponent<Wiring>().wiringGame = currentSpawn;

@@ -1630,6 +1630,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2651297187301129167}
   - component: {fileID: 207143743835291003}
+  - component: {fileID: 5276742796815453417}
   m_Layer: 0
   m_Name: WireGame1
   m_TagString: Untagged
@@ -1684,6 +1685,8 @@ MonoBehaviour:
   RightWire: {fileID: 8400286344663882160}
   Correct1: {fileID: 574700544077955480}
   Correct2: {fileID: 572081293491464}
+  targetObject: {fileID: 0}
+  DisplayText: {fileID: 0}
   Red: {fileID: 1513979419982144700}
   Blue: {fileID: 1910680971239675078}
   Yellow: {fileID: 5165186952752601826}
@@ -1691,6 +1694,21 @@ MonoBehaviour:
   Blue1: {fileID: 2389769840679218918}
   Yellow1: {fileID: 2066319286998913490}
   raycastCamera: {fileID: 0}
+  offsetY: 5
+--- !u!114 &5276742796815453417
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8258034778367768340}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 482d80aa04857a94e9dec952b667d061, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wiringPos: {fileID: 0}
+  teleportTo: {fileID: 0}
 --- !u!1 &8400286344663882160
 GameObject:
   m_ObjectHideFlags: 0

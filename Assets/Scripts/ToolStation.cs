@@ -267,6 +267,7 @@ public class ToolStation : MonoBehaviour
     {
         if (toolPos != null)
         {
+            teleportTo.GetComponent<AssemblyStation>().AddPart(roboPart.gameObject);
             Vector3 targetPosition = new Vector3(toolPos.position.x, toolPos.position.y + offsetY, toolPos.position.z);
             roboPart.gameObject.transform.position = targetPosition;
             roboPart.transform.parent = teleportTo.transform;

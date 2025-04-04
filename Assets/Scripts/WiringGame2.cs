@@ -25,8 +25,9 @@ public class WiringGame2 : MonoBehaviour
 
     public GameObject targetObject;
     public float offsetY = 1.0f;
+    private bool isDone = false;
 
-    public TextMeshPro statusText;
+    //public TextMeshPro statusText;
     public Camera raycastCamera;
 
     private string leftWire1Color = "none";
@@ -39,10 +40,12 @@ public class WiringGame2 : MonoBehaviour
         Correct2.GetComponent<MeshRenderer>().enabled = false;
         Correct3.GetComponent<MeshRenderer>().enabled = false;
 
+        /*
         if (statusText != null)
         {
             statusText.text = "";
         }
+        */
 
         if (raycastCamera == null)
         {
@@ -101,14 +104,18 @@ public class WiringGame2 : MonoBehaviour
             Correct1.GetComponent<MeshRenderer>().enabled = true;
             Correct2.GetComponent<MeshRenderer>().enabled = true;
             Correct3.GetComponent<MeshRenderer>().enabled = true;
-            MoveToTargetPosition(Correct1);
-            MoveToTargetPosition(Correct2);
-            MoveToTargetPosition(Correct3);
+            //MoveToTargetPosition(Correct1);
+            //MoveToTargetPosition(Correct2);
+            //MoveToTargetPosition(Correct3);
 
+            isDone = true;
+
+            /*
             if (statusText != null)
             {
                 statusText.text = "Done!";
             }
+            */
         }
         else
         {
@@ -116,13 +123,16 @@ public class WiringGame2 : MonoBehaviour
             Correct2.GetComponent<MeshRenderer>().enabled = false;
             Correct3.GetComponent<MeshRenderer>().enabled = false;
 
+            /*
             if (statusText != null)
             {
                 statusText.text = "";
             }
+            */
         }
     }
 
+    /*
     void MoveToTargetPosition(GameObject correctWire)
     {
         if (targetObject != null)
@@ -130,5 +140,11 @@ public class WiringGame2 : MonoBehaviour
             Vector3 targetPosition = new Vector3(targetObject.transform.position.x, targetObject.transform.position.y + offsetY, targetObject.transform.position.z);
             correctWire.transform.position = targetPosition;
         }
+    }
+    */
+
+    public bool GameIsDone()
+    {
+        return isDone;
     }
 }
