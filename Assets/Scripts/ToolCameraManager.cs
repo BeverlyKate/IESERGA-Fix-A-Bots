@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ToolCameraManager : MonoBehaviour
 {
@@ -6,6 +7,8 @@ public class ToolCameraManager : MonoBehaviour
     [SerializeField] private GameObject RightButton;
     [SerializeField] private GameObject ZoomButton;
     [SerializeField] private GameObject ResetButton;
+    [SerializeField] private Sprite ZoomInSprt;
+    [SerializeField] private Sprite ZoomOutSprt;
 
     public float speed = 5f;
     private bool isZoomed = false;
@@ -55,6 +58,7 @@ public class ToolCameraManager : MonoBehaviour
     {
         if (!isZoomed)
         {
+            ZoomButton.GetComponent<Image>().sprite = ZoomOutSprt;
             transform.position = Vector3.MoveTowards(origPos, partPos, speed);
             transform.eulerAngles = new Vector3(origRot.x - 15f, origRot.y, origRot.z);
             currentRot = transform.eulerAngles;
@@ -64,6 +68,7 @@ public class ToolCameraManager : MonoBehaviour
         }
         else
         {
+            ZoomButton.GetComponent<Image>().sprite = ZoomInSprt;
             transform.position = Vector3.MoveTowards(partPos, origPos, speed);
             transform.eulerAngles = origRot;
             isZoomed = false;

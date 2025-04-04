@@ -30,7 +30,7 @@ public class PaintStation : MonoBehaviour
 
     void Start()
     {
-        resetButton.gameObject.SetActive(false);
+        //resetButton.gameObject.SetActive(true);
         initialPositions = new Vector3[cylinders.Length];
         for (int i = 0; i < cylinders.Length; i++)
         {

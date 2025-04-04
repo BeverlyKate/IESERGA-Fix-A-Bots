@@ -119,6 +119,7 @@ public class WorkshopInteraction : MonoBehaviour
         {
             clickedObject.GetComponent<PaintStation>().enabled = true;
             clickedObject.GetComponent<BoxCollider>().enabled = false;
+            clickedObject.GetComponent<PaintResetManager>().EnableBtn();
         }
         else if (clickedObject.name == "Wiring")
         {
@@ -139,6 +140,7 @@ public class WorkshopInteraction : MonoBehaviour
         {
             clickedObject.GetComponent<PaintStation>().enabled = false;
             clickedObject.GetComponent<BoxCollider>().enabled = true;
+            clickedObject.GetComponent<PaintResetManager>().DisableBtn();
         }
         else if (clickedObject.name == "Wiring")
         {
