@@ -421,6 +421,86 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5573264672692549908, guid: 4281644abf4623f4c8919c0b714c1c24, type: 3}
   m_PrefabInstance: {fileID: 2139099940}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &208512094
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 208512096}
+  - component: {fileID: 208512095}
+  m_Layer: 0
+  m_Name: Level3DialogueOpening
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &208512095
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 208512094}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7ae9df3bb925804391492bd27840ae8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+  - spriteImg: {fileID: 0}
+    name: Robot Companion
+    sentences:
+    - Van! Van!
+  - spriteImg: {fileID: 0}
+    name: Van
+    sentences:
+    - What?! What is it?!
+  - spriteImg: {fileID: 0}
+    name: Robot Companion
+    sentences:
+    - Our delivery arrived!
+  - spriteImg: {fileID: 0}
+    name: Van
+    sentences:
+    - A repair delivery?
+  - spriteImg: {fileID: 0}
+    name: Robot Companion
+    sentences:
+    - No, our new machine is here!
+  - spriteImg: {fileID: 0}
+    name: Van
+    sentences:
+    - We ordered a new machine?
+  - spriteImg: {fileID: 0}
+    name: Robot Companion
+    sentences:
+    - Yes! Well, I did.
+    - "It\u2019s second hand, and it costed quite a bit, but it should help with
+      our future repairs."
+  - spriteImg: {fileID: 0}
+    name: Van
+    sentences:
+    - I hope so. Hey! We got a new order in.
+  animator: {fileID: 629195556}
+--- !u!4 &208512096
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 208512094}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.2191639, y: 1.2510324, z: -0.018018294}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &274384328
 GameObject:
   m_ObjectHideFlags: 0
@@ -977,6 +1057,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eb528dbb004ead94b8c5a43d003bd617, type: 3}
+--- !u!95 &629195556 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 499739471429708187, guid: 2658dc794eed3f64c90df44b6c0462c2, type: 3}
+  m_PrefabInstance: {fileID: 706687956}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &706687956
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1295,7 +1380,10 @@ PrefabInstance:
     m_RemovedGameObjects:
     - {fileID: 6234279508035817348, guid: 2658dc794eed3f64c90df44b6c0462c2, type: 3}
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2855957458792436822, guid: 2658dc794eed3f64c90df44b6c0462c2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 879636395}
   m_SourcePrefab: {fileID: 100100000, guid: 2658dc794eed3f64c90df44b6c0462c2, type: 3}
 --- !u!114 &754882107 stripped
 MonoBehaviour:
@@ -1308,6 +1396,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d51d4a061ec775d46ba438f52a34f258, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &879636389 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2855957458792436822, guid: 2658dc794eed3f64c90df44b6c0462c2, type: 3}
+  m_PrefabInstance: {fileID: 706687956}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &879636395
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 879636389}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8ba194ed705fa14bb67758dcca9699d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lvl3Start: {fileID: 208512094}
+  wireTutorial: {fileID: 1261751263}
+  cam: {fileID: 1682849514}
 --- !u!1001 &1141822237
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1657,6 +1765,74 @@ MonoBehaviour:
   EndofDay: {fileID: 2080953476}
   timeInDay: 86400
   timeScale: 60
+--- !u!1 &1261751263
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1261751265}
+  - component: {fileID: 1261751264}
+  m_Layer: 0
+  m_Name: WireTutorial
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &1261751264
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1261751263}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7ae9df3bb925804391492bd27840ae8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+  - spriteImg: {fileID: 0}
+    name: Van
+    sentences:
+    - So, this is the new machine?
+  - spriteImg: {fileID: 0}
+    name: Robot Companion
+    sentences:
+    - Yes, it creates the wires for us if there are any missing ones.
+  - spriteImg: {fileID: 0}
+    name: Robot Companion
+    sentences:
+    - It might have something to do with the colors of the wires.
+  - spriteImg: {fileID: 0}
+    name: Van
+    sentences:
+    - But why are there numbers?
+  - spriteImg: {fileID: 0}
+    name: Robot Companion
+    sentences:
+    - Hmm... Try to match the colors of the wires with the numbers and see.
+    - "If you want to make the wires, just tap at the colors to assign the color
+      for each part.\r"
+  animator: {fileID: 629195556}
+--- !u!4 &1261751265
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1261751263}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.2191639, y: 1.2510324, z: -0.018018294}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1289175404
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2305,7 +2481,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5549696473822716722, guid: 756f38329da58e246945eeddfd864d18, type: 3}
       propertyPath: currentDay
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7918385039743585850, guid: 756f38329da58e246945eeddfd864d18, type: 3}
       propertyPath: m_Name
@@ -2708,3 +2884,5 @@ SceneRoots:
   - {fileID: 1890734864}
   - {fileID: 1784999103}
   - {fileID: 1958898579}
+  - {fileID: 208512096}
+  - {fileID: 1261751265}

@@ -623,6 +623,7 @@ MonoBehaviour:
   statusText: {fileID: 348659381279037555}
   teleportTo: {fileID: 0}
   paintPos: {fileID: 0}
+  indicator: {fileID: 4042698963060023488}
 --- !u!114 &3426595842746647984
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1283,6 +1284,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e3d0a25b9c569254eae3868c1b19abd0, type: 3}
+--- !u!1 &4042698963060023488 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1064247302199183580, guid: e3d0a25b9c569254eae3868c1b19abd0, type: 3}
+  m_PrefabInstance: {fileID: 3953731671010338844}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7430511062066832036 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5890708795949238968, guid: e3d0a25b9c569254eae3868c1b19abd0, type: 3}

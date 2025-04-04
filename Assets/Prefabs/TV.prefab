@@ -67,9 +67,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d51d4a061ec775d46ba438f52a34f258, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  clockManager: {fileID: 0}
   missionPanel: {fileID: 0}
   missionText: {fileID: 0}
   numberOfMission: 0
+  lightUpMaterial: {fileID: 2100000, guid: 9d8c5d6f649445a46a142d77a04e71bc, type: 2}
+  dimMaterial: {fileID: 2100000, guid: 2024a845488b21f458a54710fdb118f3, type: 2}
+  tvScreen: {fileID: 4809509856999364009}
 --- !u!1001 &823144155099160310
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -144,5 +148,10 @@ PrefabInstance:
 --- !u!4 &929672549344917789 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 1007525adb39b894a924158937e581e9, type: 3}
+  m_PrefabInstance: {fileID: 823144155099160310}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4809509856999364009 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5319501597442575199, guid: 1007525adb39b894a924158937e581e9, type: 3}
   m_PrefabInstance: {fileID: 823144155099160310}
   m_PrefabAsset: {fileID: 0}

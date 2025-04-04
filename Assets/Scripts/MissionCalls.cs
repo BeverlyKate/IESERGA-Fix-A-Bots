@@ -16,17 +16,21 @@ public class MissionCalls : MonoBehaviour
     public TMP_Text missionText;
     public int numberOfMission;
     public Material lightUpMaterial;
+    public Material dimMaterial;
+    public GameObject tvScreen;
     private int currentTask;
 
     private bool missionActive = false;  
     private bool missionCompleted = false;
     private bool currentOngoing = false;
     private bool isTriggered = false;
+    private Material originalMaterial;
 
     void Start()
     {
         myCamera = Camera.main;
         missionPanel.SetActive(false);
+        tvScreen.GetComponent<Renderer>().material = lightUpMaterial;
 
         currentTask = 0;
     }
@@ -37,7 +41,7 @@ public class MissionCalls : MonoBehaviour
         {
             if (Input.GetTouch(0).phase == TouchPhase.Began)
             {
-                HandleRayCast(Input.mousePosition);
+                HandleRayCast(Input.GetTouch(0).position);
             }
         }
     }
@@ -82,6 +86,7 @@ public class MissionCalls : MonoBehaviour
         {
             isTriggered = true;
         }
+        tvScreen.GetComponent<Renderer>().material = dimMaterial;
     }
 
     // Call this method when the mission is completed
@@ -95,6 +100,10 @@ public class MissionCalls : MonoBehaviour
         if (currentTask == numberOfMission)
         {
             clockManager.EndWorkTime();
+        }
+        else
+        {
+            tvScreen.GetComponent<Renderer>().material = lightUpMaterial;
         }
     }
 }

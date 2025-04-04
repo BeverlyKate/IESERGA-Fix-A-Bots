@@ -35,7 +35,7 @@ public class AssemblyStation : MonoBehaviour
 
         foreach (GameObject repairedPart in repairedParts)
         {
-            Destroy(transform.Find(repairedPart.name), 5f);
+            Destroy(repairedPart, 1.5f);
         }
 
         Array.Clear(repairedParts, 0, repairedParts.Length);
