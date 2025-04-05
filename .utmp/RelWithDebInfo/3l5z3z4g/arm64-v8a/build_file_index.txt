@@ -1,0 +1,2 @@
+D:\school\IESERGA\IESERGA-Fix-A-Bot-Git\IESERGA-Fix-A-Bot\Library\Bee\Android\Prj\IL2CPP\Gradle\unityLibrary\src\main\cpp\CMakeLists.txt
+D:\school\IESERGA\IESERGA-Fix-A-Bot-Git\IESERGA-Fix-A-Bot\Library\Bee\Android\Prj\IL2CPP\Gradle\unityLibrary\src\main\cpp\GameActivity\CMakeLists.txt
