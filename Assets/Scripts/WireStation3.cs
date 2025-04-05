@@ -11,7 +11,6 @@ public class WireStation3 : MonoBehaviour
     public List<Wire3> wires = new List<Wire3>();
     public Transform[] wireSlots; // Assign in the Inspector
     public GameObject correctIndicator; // Assign a visual indicator
-
     public Camera mainCamera; // Assign in Inspector!
 
     private void Start()
@@ -31,21 +30,66 @@ public class WireStation3 : MonoBehaviour
     {
         if (draggedWire != null)
         {
-            Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
-            Plane dragPlane = new Plane(Vector3.up, draggedWire.transform.position); // Plane aligned with the wire's height
-            float distance;
-
-            if (dragPlane.Raycast(ray, out distance))
+            // Find the touch that's dragging this wire
+            Touch? activeTouch = null;
+            foreach (Touch touch in Input.touches)
             {
-                Vector3 worldPosition = ray.GetPoint(distance);
-                draggedWire.transform.position = new Vector3(worldPosition.x + offset.x, draggedWire.transform.position.y, worldPosition.z + offset.z);
+                if (touch.fingerId == draggedWire.GetTouchId())
+                {
+                    activeTouch = touch;
+                    break;
+                }
             }
 
-            if (Input.GetMouseButtonUp(0)) // Release the wire
+            if (activeTouch.HasValue)
             {
+                Ray ray = mainCamera.ScreenPointToRay(activeTouch.Value.position);
+                Plane dragPlane = new Plane(Vector3.up, draggedWire.transform.position);
+                float distance;
+
+                if (dragPlane.Raycast(ray, out distance))
+                {
+                    Vector3 worldPosition = ray.GetPoint(distance);
+                    draggedWire.transform.position = new Vector3(worldPosition.x + offset.x, draggedWire.transform.position.y, worldPosition.z + offset.z);
+                }
+            }
+            else
+            {
+                // Touch was lost, drop the wire
                 DropWire(draggedWire);
                 draggedWire = null;
             }
+        }
+        else
+        {
+            // Check for new touches on wires
+            foreach (Touch touch in Input.touches)
+            {
+                if (touch.phase == TouchPhase.Began)
+                {
+                    Ray ray = mainCamera.ScreenPointToRay(touch.position);
+                    RaycastHit hit;
+
+                    if (Physics.Raycast(ray, out hit))
+                    {
+                        Wire3 wire = hit.collider.GetComponent<Wire3>();
+                        if (wire != null)
+                        {
+                            wire.StartTouch(touch.fingerId);
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    public void EndTouch(Wire3 wire)
+    {
+        if (draggedWire == wire)
+        {
+            DropWire(wire);
+            draggedWire = null;
         }
     }
 
@@ -64,70 +108,83 @@ public class WireStation3 : MonoBehaviour
             wire.currentSlot = null;
         }
 
-        // Raycast to find initial mouse position in world space
-        Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
-        Plane dragPlane = new Plane(Vector3.up, wire.transform.position);
-        float distance;
-
-        if (dragPlane.Raycast(ray, out distance))
+        // Raycast to find initial touch position in world space
+        Touch? touch = null;
+        foreach (Touch t in Input.touches)
         {
-            Vector3 worldPosition = ray.GetPoint(distance);
-            offset = wire.transform.position - worldPosition;
-        }
-    }
-
-    private void DropWire(Wire3 wire)
-{
-    wire.transform.localScale = Vector3.one; // Ensure scale remains unchanged
-
-    float snapRange = 1.0f; // Detection range
-    Transform closestSlot = null;
-    WireSlot closestWireSlot = null;
-    float minDistance = float.MaxValue;
-
-    Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
-    RaycastHit[] hits = Physics.RaycastAll(ray, 100f);
-
-    foreach (RaycastHit hit in hits)
-    {
-        WireSlot wireSlotComponent = hit.collider.GetComponent<WireSlot>();
-
-        if (wireSlotComponent != null)
-        {
-            float distance = Vector3.Distance(wire.transform.position, hit.point);
-            if (distance < minDistance && distance < snapRange)
+            if (t.fingerId == wire.GetTouchId())
             {
-                closestSlot = hit.collider.transform;
-                closestWireSlot = wireSlotComponent;
-                minDistance = distance;
+                touch = t;
+                break;
+            }
+        }
+
+        if (touch.HasValue)
+        {
+            Ray ray = mainCamera.ScreenPointToRay(touch.Value.position);
+            Plane dragPlane = new Plane(Vector3.up, wire.transform.position);
+            float distance;
+
+            if (dragPlane.Raycast(ray, out distance))
+            {
+                Vector3 worldPosition = ray.GetPoint(distance);
+                offset = wire.transform.position - worldPosition;
             }
         }
     }
 
-    // If a nearby slot is found, check if the wire is correct
-    if (closestSlot != null)
+    private void DropWire(Wire3 wire)
     {
-        wire.currentSlot = closestSlot;
+        wire.transform.localScale = Vector3.one;
 
-        // Check if the wire matches the correct pattern
-        bool isCorrect = CheckIfCorrectWire(closestSlot, wire);
+        float snapRange = 1.0f;
+        Transform closestSlot = null;
+        WireSlot closestWireSlot = null;
+        float minDistance = float.MaxValue;
 
-        // ✅ Change color based on correctness (ensuring persistence)
-        closestWireSlot.SetOccupied(true, isCorrect); 
+        // Find the touch position for this wire
+        Vector2 touchPosition = Vector2.zero;
+        bool foundTouch = false;
+        foreach (Touch touch in Input.touches)
+        {
+            if (touch.fingerId == wire.GetTouchId())
+            {
+                touchPosition = touch.position;
+                foundTouch = true;
+                break;
+            }
+        }
 
-        Debug.Log($"🟢 Wire {wire.name} placed near slot {closestSlot.name} (Correct: {isCorrect})");
-        Debug.Log($"🔴 Slot {closestSlot.name} should be {(isCorrect ? "Green (Correct)" : "Red (Incorrect)")}");
+        if (!foundTouch) return;
 
-        // ✅ Prevent ResetSlot() from overwriting the color
-        closestWireSlot.isOccupied = true;
+        Ray ray = mainCamera.ScreenPointToRay(touchPosition);
+        RaycastHit[] hits = Physics.RaycastAll(ray, 100f);
+
+        foreach (RaycastHit hit in hits)
+        {
+            WireSlot wireSlotComponent = hit.collider.GetComponent<WireSlot>();
+            if (wireSlotComponent != null)
+            {
+                float distance = Vector3.Distance(wire.transform.position, hit.point);
+                if (distance < minDistance && distance < snapRange)
+                {
+                    closestSlot = hit.collider.transform;
+                    closestWireSlot = wireSlotComponent;
+                    minDistance = distance;
+                }
+            }
+        }
+
+        if (closestSlot != null)
+        {
+            wire.currentSlot = closestSlot;
+            bool isCorrect = CheckIfCorrectWire(closestSlot, wire);
+            closestWireSlot.SetOccupied(true, isCorrect);
+            closestWireSlot.isOccupied = true;
+        }
+
+        CheckCorrectOrder();
     }
-    else
-    {
-        Debug.LogWarning($"⚠️ Wire {wire.name} was dropped but not near any slot!");
-    }
-
-    CheckCorrectOrder();
-}
 
     private void CheckCorrectOrder()
     {
@@ -135,7 +192,7 @@ public class WireStation3 : MonoBehaviour
         if (wires.Count != wireSlots.Length)
         {
             correctIndicator.SetActive(false);
-            ResetAllSlots(); // Reset slot colors
+            ResetAllSlots();
             return;
         }
 
@@ -149,17 +206,16 @@ public class WireStation3 : MonoBehaviour
             wires[2].wireColor3 == WireColor3.Red &&
             wires[3].wireColor3 == WireColor3.Red)
         {
-            correctIndicator.SetActive(true); // Show correct order indicator
+            correctIndicator.SetActive(true);
             GetComponentInParent<WiringTeleport>().TriggerTeleport();
         }
         else
         {
             correctIndicator.SetActive(false);
-            ResetAllSlots(); // Reset slot colors if incorrect
+            ResetAllSlots();
         }
     }
 
-    // Reset all wire slots to default material
     private void ResetAllSlots()
     {
         foreach (Transform slot in wireSlots)
@@ -175,41 +231,29 @@ public class WireStation3 : MonoBehaviour
     private bool CheckIfCorrectWire(Transform slot, Wire3 wire)
     {
         int slotIndex = System.Array.IndexOf(wireSlots, slot);
-
-        // Expected wire colors in order: Yellow, Red, Red, Red
         WireColor3[] expectedColors = { WireColor3.Red, WireColor3.Yellow, WireColor3.Red, WireColor3.Red };
 
         if (slotIndex >= 0 && slotIndex < expectedColors.Length)
         {
             bool isCorrect = wire.wireColor3 == expectedColors[slotIndex];
-
             if (isCorrect)
             {
-                correctIndicator.SetActive(true); // ✅ This now runs properly
+                correctIndicator.SetActive(true);
             }
-
-            return isCorrect; // ✅ Only returns after setting correctIndicator
+            return isCorrect;
         }
-
         return false;
     }
 
-    // 🟢 **Properly Place `OnDrawGizmos()` Here**
 #if UNITY_EDITOR
-private void OnDrawGizmos()
-{
-    Debug.Log("🟡 OnDrawGizmos is running!");
-        Debug.Log($"🟡 OnDrawGizmos running! draggedWire = {(draggedWire != null ? draggedWire.name : "null")}");
-
-    if (draggedWire != null)
+    private void OnDrawGizmos()
     {
-        float snapRange = 1.0f; // Adjust snap detection range
-
-        // 🔵 Draw a transparent wire disc around the wire to show snap area
-        Handles.color = Color.yellow;
-        Handles.DrawWireDisc(draggedWire.transform.position, Vector3.up, snapRange);
+        if (draggedWire != null)
+        {
+            float snapRange = 1.0f;
+            Handles.color = Color.yellow;
+            Handles.DrawWireDisc(draggedWire.transform.position, Vector3.up, snapRange);
+        }
     }
-}
 #endif
-
 }
