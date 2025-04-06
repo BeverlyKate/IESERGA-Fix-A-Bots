@@ -12,7 +12,7 @@ public class MissionTrigger : MonoBehaviour
 
     public Transform[] teleportPos;
 
-    private GameObject[] stations;
+    public GameObject[] stations;
 
     private Dictionary<string, string[]> panelAssignments = new Dictionary<string, string[]>
     {
@@ -24,7 +24,9 @@ public class MissionTrigger : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        stations = GameObject.FindGameObjectsWithTag("Station");
+        //stations = GameObject.FindGameObjectsWithTag("Station");
+
+        Debug.Log(mission.Length);
     }
 
     // Update is called once per frame
@@ -48,6 +50,7 @@ public class MissionTrigger : MonoBehaviour
                 }
                 else if (station.gameObject.name == "Wiring")
                 {
+                    Debug.Log("Distributing items");
                     currentSpawn = (GameObject)Instantiate(mission[currentTask].wireTask);
                     if (currentSpawn.GetComponentInChildren<WireStation>() != null || currentSpawn.GetComponentInChildren<WireStation3>() != null)
                     {

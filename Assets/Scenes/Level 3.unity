@@ -933,9 +933,25 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3808781586596140029, guid: eb528dbb004ead94b8c5a43d003bd617, type: 3}
+      propertyPath: stations.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3808781586596140029, guid: eb528dbb004ead94b8c5a43d003bd617, type: 3}
       propertyPath: targetTelepotPosition
       value: 
       objectReference: {fileID: 303333807}
+    - target: {fileID: 3808781586596140029, guid: eb528dbb004ead94b8c5a43d003bd617, type: 3}
+      propertyPath: 'stations.Array.data[0]'
+      value: 
+      objectReference: {fileID: 4760288687950764747}
+    - target: {fileID: 3808781586596140029, guid: eb528dbb004ead94b8c5a43d003bd617, type: 3}
+      propertyPath: 'stations.Array.data[1]'
+      value: 
+      objectReference: {fileID: 1289175405}
+    - target: {fileID: 3808781586596140029, guid: eb528dbb004ead94b8c5a43d003bd617, type: 3}
+      propertyPath: 'stations.Array.data[2]'
+      value: 
+      objectReference: {fileID: 1141822238}
     - target: {fileID: 3808781586596140029, guid: eb528dbb004ead94b8c5a43d003bd617, type: 3}
       propertyPath: teleportPos.Array.size
       value: 3
@@ -1635,6 +1651,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 9ff9d82183674f04d91711b99158895f, type: 3}
+--- !u!1 &1141822238 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5283790026144366931, guid: 9ff9d82183674f04d91711b99158895f, type: 3}
+  m_PrefabInstance: {fileID: 1141822237}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1146291927
 GameObject:
   m_ObjectHideFlags: 0
@@ -2218,6 +2239,11 @@ PrefabInstance:
       addedObject: {fileID: 166390581}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f57cf41c75c2eb3408691d1a73813a12, type: 3}
+--- !u!1 &1289175405 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7967217834654837808, guid: f57cf41c75c2eb3408691d1a73813a12, type: 3}
+  m_PrefabInstance: {fileID: 1289175404}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1540968771
 GameObject:
   m_ObjectHideFlags: 0
@@ -2603,7 +2629,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5549696473822716722, guid: 756f38329da58e246945eeddfd864d18, type: 3}
       propertyPath: currentDay
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7918385039743585850, guid: 756f38329da58e246945eeddfd864d18, type: 3}
       propertyPath: m_Name
@@ -2997,6 +3023,11 @@ PrefabInstance:
       addedObject: {fileID: 854484324}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a95f84ecaf9ff6d48bd3906077869a0f, type: 3}
+--- !u!1 &4760288687950764747 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2767950185021021532, guid: a95f84ecaf9ff6d48bd3906077869a0f, type: 3}
+  m_PrefabInstance: {fileID: 4760288687950764746}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

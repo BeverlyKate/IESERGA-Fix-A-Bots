@@ -18,6 +18,7 @@ public class MissionCalls : MonoBehaviour
     public Material lightUpMaterial;
     public Material dimMaterial;
     public GameObject tvScreen;
+    public MissionTrigger trigger;
     private int currentTask;
 
     private bool missionActive = false;  
@@ -65,7 +66,7 @@ public class MissionCalls : MonoBehaviour
         missionActive = true;
         if (!currentOngoing)
         {
-            FindAnyObjectByType<MissionTrigger>().StationSetUp(currentTask);
+            trigger.StationSetUp(currentTask);
             currentOngoing = true;
         }
     }
